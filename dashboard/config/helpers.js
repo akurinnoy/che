@@ -13,17 +13,18 @@ function isWebpackDevServer() {
   return process.argv[1] && !! (/webpack-dev-server/.exec(process.argv[1]));
 }
 
-function getOptions() {
+function getCliServer() {
   const serverOptions = {
     string: 'server',
     default: {server: 'http://localhost:8080'}
   };
-  return minimist(process.argv.slice(2), serverOptions);
+  console.log('>>>server: ', minimist(process.argv.slice(2), serverOptions).server);
+  return minimist(process.argv.slice(2), serverOptions).server;
 }
 
 const root = path.join.bind(path, ROOT);
 
 exports.hasProcessFlag = hasProcessFlag;
 exports.isWebpackDevServer = isWebpackDevServer;
-exports.getOptions = getOptions;
+exports.getCliServer = getCliServer;
 exports.root = root;

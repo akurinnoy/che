@@ -3,6 +3,9 @@
 const webpack = require('webpack');
 const helpers = require('./helpers');
 
+const cheColors = require(helpers.root('src/app/colors', 'che-colors.json'));
+const cheOutputColors = require(helpers.root('src/app/colors', 'che-output-colors.json'));
+
 /**
  * Webpack plugins
  */
@@ -19,9 +22,9 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 //const ngcWebpack = require('ngc-webpack');
 
 /**
- * test plugin
+ * Che plugins
  */
-const CheCopyAndReplacePlugin = require('./plugins/che-copy-and-replace-plugin');
+const CheCopyAndReplacePlugin = require('./plugins/che-copy-and-replace-plugin/che-copy-and-replace-plugin');
 
 /**
  * Webpack Constants
@@ -209,13 +212,47 @@ module.exports = function(options) {
      */
     plugins: [
       new CheCopyAndReplacePlugin({
-        source: helpers.root('str/app/colors', 'che-color.constant.ts.template'),
-        destination: helpers.root('str/app/colors', 'che-color.constant.ts'),
-        replace: [{
-          pattern: '%CONTENT%',
-          to: 'asldfjkaslfhwlkejflksj',
-          flags: ''
-        }]
+        sourceFile: helpers.root('src/app/colors', 'che-color.constant.ts.template'),
+        destinationFile: helpers.root('src/app/colors', 'che-color.constant.ts'),
+        replace: [
+          {
+            searchVal: '%CONTENT%',
+            replaceVal: JSON.stringify(cheColors, null, '  '),
+            flags: ''
+          },
+          {
+            searchVal: '\"',
+            replaceVal: '\'',
+            flags: 'g'
+          }
+        ]
+      }),
+      new CheCopyAndReplacePlugin({
+        sourceFile: helpers.root('src/app/colors', 'che-output-colors.constant.ts.template'),
+        destinationFile: helpers.root('src/app/colors', 'che-output-colors.constant.ts'),
+        replace: [
+          {
+            searchVal: '%CONTENT%',
+            replaceVal: JSON.stringify(cheOutputColors, null, '  '),
+            flags: ''
+          },
+          {
+            searchVal: '\"',
+            replaceVal: '\'',
+            flags: 'g'
+          }
+        ]
+      }),
+      new CheCopyAndReplacePlugin({
+        sourceFile: helpers.root('src/app/proxy', 'proxy-settings.constant.ts.template'),
+        destinationFile: helpers.root('src/app/proxy', 'proxy-settings.constant.ts'),
+        replace: [
+          {
+            searchVal: '%CONTENT%',
+            replaceVal: helpers.getCliServer(),
+            flags: ''
+          }
+        ]
       }),
 
       new AssetsPlugin({
