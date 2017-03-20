@@ -9,6 +9,7 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+import 'angular';
 
 import {Register} from '../components/utils/register';
 import {FactoryConfig} from './factories/factories-config';
@@ -31,7 +32,6 @@ import {ProxySettingsConfig} from './proxy/proxy-settings.constant';
 import {WorkspacesConfig} from './workspaces/workspaces-config';
 import {StacksConfig} from './stacks/stacks-config';
 import {DemoComponentsCtrl} from './demo-components/demo-components.controller';
-
 
 // init module
 let initModule = angular.module('userDashboard', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute',

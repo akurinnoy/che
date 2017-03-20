@@ -277,22 +277,11 @@ module.exports = function(options) {
        * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
        * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
        */
-      new CommonsChunkPlugin({
-        name: 'polyfills',
-        chunks: ['polyfills']
-      }),
-
       // This enables tree shaking of the vendor modules
       new CommonsChunkPlugin({
         name: 'vendor',
-        chunks: ['main'],
+        chunks: ['app'],
         minChunks: module => /node_modules/.test(module.resource)
-      }),
-
-      // todo
-      // Specify the correct order the scripts will be injected in
-      new CommonsChunkPlugin({
-        name: ['polyfills', 'vendor'].reverse()
       }),
 
       /**
@@ -322,18 +311,6 @@ module.exports = function(options) {
        */
       new CopyWebpackPlugin([
         { from: 'assets', to: 'assets' },
-        //{
-        //  from: helpers.root('src/app/colors', 'che-color.constant.ts.template'),
-        //  to: helpers.root('src/app/colors', 'che-color.constant.ts')
-        //},
-        //{
-        //  from: helpers.root('src/app/colors', 'che-output-colors.constant.ts.template'),
-        //  to: helpers.root('src/app/colors', 'che-output-colors.constant.ts')
-        //},
-        //{
-        //  from: helpers.root('src/app/proxy', 'proxy-settings.constant.ts.template'),
-        //  to: helpers.root('src/app/proxy', 'proxy-settings.constant.ts')
-        //},
       ]),
 
 

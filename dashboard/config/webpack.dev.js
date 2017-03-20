@@ -144,17 +144,6 @@ module.exports = function(options) {
 
       new DllBundlesPlugin({
         bundles: {
-          polyfills: [
-            'core-js',
-            //{
-            //  name: 'zone.js',
-            //  path: 'zone.js/dist/zone.js'
-            //},
-            //{
-            //  name: 'zone.js',
-            //  path: 'zone.js/dist/long-stack-trace-zone.js'
-            //},
-          ],
           vendor: [
             'angular'
           ]
@@ -175,7 +164,6 @@ module.exports = function(options) {
        * See: https://github.com/SimenB/add-asset-html-webpack-plugin
        */
       new AddAssetHtmlPlugin([
-        { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('polyfills')}`) },
         { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('vendor')}`) }
       ]),
 
