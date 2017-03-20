@@ -1,9 +1,7 @@
-src/app/colors/che-output-colors.constant.js
 src/app/colors/che-output-colors.constant.ts
-src/app/colors/codenvy-color.constant.js
+src/app/colors/che-color.constant.ts
 src/app/colors/codenvy-color.constant.ts
 src/app/colors/template/
-src/app/proxy/proxy-settings.constant.js
 src/app/proxy/proxy-settings.constant.ts
 src/app/proxy/template/
 node_modules/
@@ -13,6 +11,7 @@ bower_components/
 tmp
 coverage
 dist/
+dll/
 
 .idea/
 *.iml
@@ -24,3 +23,6 @@ docs
 target/
 uE001-README.MD
 /typings/
+
+# do NOT ignore webpack configs
+!config/
