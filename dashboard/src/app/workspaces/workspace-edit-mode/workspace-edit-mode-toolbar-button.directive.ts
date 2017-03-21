@@ -36,7 +36,7 @@ export class WorkspaceEditModeToolbarButton {
   restrict = 'E';
 
   replace = true;
-  templateUrl = 'app/workspaces/workspace-edit-mode/workspace-edit-mode-toolbar-button.html';
+  template = require('./workspace-edit-mode-toolbar-button.html');
 
   scope: {
     [propName: string]: string;

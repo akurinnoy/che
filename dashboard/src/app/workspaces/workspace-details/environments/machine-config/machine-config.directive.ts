@@ -26,7 +26,7 @@
  */
 export class WorkspaceMachineConfig {
   restrict = 'E';
-  templateUrl = 'app/workspaces/workspace-details/environments/machine-config/machine-config.html';
+  template = require('./machine-config.html');
 
   controller = 'WorkspaceMachineConfigController';
   controllerAs = 'workspaceMachineConfigController';

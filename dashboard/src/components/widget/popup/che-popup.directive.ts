@@ -27,7 +27,7 @@
  */
 export class ChePopup {
   restrict: string;
-  templateUrl: string;
+  template: string;
   transclude: boolean;
   scope: {
     [propName: string]: string
@@ -40,7 +40,7 @@ export class ChePopup {
   constructor() {
     this.restrict = 'E';
     this.transclude = true;
-    this.templateUrl = 'components/widget/popup/che-popup.html';
+    this.template = require('./che-popup.html');
 
     // scope values
     this.scope = {

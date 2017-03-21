@@ -16,7 +16,7 @@
  */
 export class WorkspaceConfigImport {
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-details/config-import/workspace-config-import.html';
+  template: string = require('./workspace-config-import.html');
   replace: boolean = false;
 
   controller: string = 'WorkspaceConfigImportController';

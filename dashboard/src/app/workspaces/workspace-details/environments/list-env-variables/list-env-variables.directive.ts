@@ -26,7 +26,7 @@
  */
 export class ListEnvVariables {
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-details/environments/list-env-variables/list-env-variables.html';
+  template: string = require('./list-env-variables.html');
 
   controller: string = 'ListEnvVariablesController';
   controllerAs: string = 'listEnvVariablesController';

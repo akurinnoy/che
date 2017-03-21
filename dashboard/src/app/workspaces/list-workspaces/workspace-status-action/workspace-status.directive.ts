@@ -32,7 +32,7 @@ export class CheWorkspaceStatus {
     [propName: string]: string
   };
 
-  templateUrl: string;
+  template: string;
   controller: string;
   controllerAs: string;
   bindToController: boolean;
@@ -49,7 +49,7 @@ export class CheWorkspaceStatus {
       workspace: '=cheWorkspaceItem'
     };
 
-    this.templateUrl = 'app/workspaces/list-workspaces/workspace-status-action/workspace-status.html';
+    this.template = require('./workspace-status.html');
 
     this.controller = 'WorkspaceStatusController';
     this.controllerAs = 'workspaceStatusController';

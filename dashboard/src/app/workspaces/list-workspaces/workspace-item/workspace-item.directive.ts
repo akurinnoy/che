@@ -18,7 +18,7 @@
 export class CheWorkspaceItem {
   restrict: string;
   require: string[];
-  templateUrl: string;
+  template: string;
   controller: string;
   controllerAs: string;
   bindToController: boolean;
@@ -44,7 +44,7 @@ export class CheWorkspaceItem {
       displayLabels : '=cheDisplayLabels'
     };
 
-    this.templateUrl = 'app/workspaces/list-workspaces/workspace-item/workspace-item.html';
+    this.template = require('./workspace-item.html');
 
 
     this.controller = 'WorkspaceItemCtrl';

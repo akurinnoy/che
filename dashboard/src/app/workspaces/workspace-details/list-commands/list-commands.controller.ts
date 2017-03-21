@@ -168,7 +168,7 @@ export class ListCommandsController {
         commands: this.commands,
         callbackController: this
       },
-      templateUrl: 'app/workspaces/workspace-details/list-commands/edit-command-dialog/edit-command-dialog.html'
+      template: require('./edit-command-dialog.html')
     });
   }
 

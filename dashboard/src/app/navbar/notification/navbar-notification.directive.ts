@@ -25,7 +25,7 @@ export class NavbarNotification {
   constructor() {
     this.restrict = 'E';
     this.bindToController = true;
-    this.templateUrl = 'app/navbar/notification/navbar-notification.html';
+    this.template = require('./navbar-notification.html');
     this.controller = 'NavbarNotificationController';
     this.controllerAs = 'navbarNotificationController';
 

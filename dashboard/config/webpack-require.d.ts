@@ -8,21 +8,5 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  */
-'use strict';
 
-/**
- * Defines a directive for creating project from zip.
- * @author Florent Benoit
- */
-export class CreateProjectZip {
-
-  /**
-   * Default constructor that is using resource
-   * @ngInject for Dependency injection
-   */
-  constructor () {
-    this.restrict='E';
-    this.template = require('./create-project-zip.html');
-  }
-
-}
+declare var require: (filename: string) => any;

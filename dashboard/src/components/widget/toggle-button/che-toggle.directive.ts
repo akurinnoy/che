@@ -18,7 +18,7 @@ import {CheToggleController} from "./che-toggle.controller";
 export class CheToggle {
   scope: Object;
   controllerAs: string;
-  templateUrl: string;
+  template: string;
   controller: string;
   restrict: string;
   require: string;
@@ -30,7 +30,7 @@ export class CheToggle {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'components/widget/toggle-button/che-toggle.html';
+    this.template = require('./che-toggle.html');
 
     this.transclude = true;
     this.controller = 'CheToggleController';

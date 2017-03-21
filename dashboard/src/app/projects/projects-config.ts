@@ -74,7 +74,7 @@ export class ProjectsConfig {
 
     let locationCreateProjectProvider = {
       title: 'New Project',
-      templateUrl: 'app/projects/create-project/create-project.html',
+      template: require('./create-project/create-project.html'),
       controller: 'CreateProjectController',
       controllerAs: 'createProjectCtrl'
     };
@@ -83,7 +83,7 @@ export class ProjectsConfig {
     register.app.config(function ($routeProvider) {
       $routeProvider.accessWhen('/project/:namespace*/:workspaceName/:projectName', {
           title: (params) => {return params.workspaceName + ' | ' + params.projectName},
-          templateUrl: 'app/projects/project-details/project-details.html',
+          template: require('./project-details/project-details.html'),
           controller: 'ProjectDetailsController',
           controllerAs: 'projectDetailsController'
         })

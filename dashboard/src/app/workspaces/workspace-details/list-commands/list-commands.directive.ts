@@ -27,7 +27,7 @@
 export class ListCommands {
   bindToController: boolean;
   restrict: string;
-  templateUrl: string;
+  template: string;
   controller: string;
   controllerAs: string;
 
@@ -41,7 +41,7 @@ export class ListCommands {
    */
   constructor () {
     this.restrict = 'E';
-    this.templateUrl = 'app/workspaces/workspace-details/list-commands/list-commands.html';
+    this.template = require('./list-commands.html');
 
     this.controller = 'ListCommandsController';
     this.controllerAs = 'listCommandsController';

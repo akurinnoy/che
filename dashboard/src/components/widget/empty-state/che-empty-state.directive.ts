@@ -26,7 +26,7 @@ export class CheEmptyState {
 
     this.replace = true;
     this.transclude = false;
-    this.templateUrl = 'components/widget/empty-state/che-empty-state.html';
+    this.template = require('./che-empty-state.html');
 
     // scope values
     this.scope = {

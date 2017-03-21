@@ -22,7 +22,7 @@ class IdeIframe {
    */
   constructor () {
     this.restrict='E';
-    this.templateUrl = 'app/ide/ide-iframe/ide-iframe.html';
+    this.template = require('./ide-iframe.html');
 
 
     this.controller = 'IdeIFrameCtrl';

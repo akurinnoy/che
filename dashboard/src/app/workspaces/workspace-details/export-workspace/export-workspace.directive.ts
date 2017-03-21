@@ -32,7 +32,7 @@ export class ExportWorkspace {
    */
   constructor () {
     this.restrict = 'E';
-    this.templateUrl = 'app/workspaces/workspace-details/export-workspace/export-workspace.html';
+    this.template = require('./export-workspace.html');
 
     this.controller = 'ExportWorkspaceController';
     this.controllerAs = 'exportWorkspaceCtrl';

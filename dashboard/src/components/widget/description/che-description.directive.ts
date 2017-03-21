@@ -26,7 +26,7 @@ export class CheDescription {
 
     this.replace = true;
     this.transclude = true;
-    this.templateUrl = 'components/widget/description/che-description.html';
+    this.template = require('./che-description.html');
 
     // scope values
     this.scope = {

@@ -38,7 +38,7 @@ export class CheSearch {
   constructor () {
     this.restrict = 'E';
     this.transclude= true;
-    this.templateUrl = 'components/widget/search/che-search.html';
+    this.template = require('./che-search.html');
 
     this.require = ['ngModel'];
 

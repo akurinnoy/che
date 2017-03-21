@@ -37,7 +37,7 @@ export class StackItem {
       onDuplicate: '&cheOnDuplicate'
     };
 
-    this.templateUrl = 'app/stacks/list-stacks/stack-item/stack-item.html';
+    this.template = require('./stack-item.html');
 
     this.controller = 'StackItemController';
     this.controllerAs = 'stackItemController';

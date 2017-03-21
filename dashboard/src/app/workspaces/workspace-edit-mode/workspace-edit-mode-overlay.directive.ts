@@ -38,7 +38,7 @@ export class WorkspaceEditModeOverlay {
   replace: boolean = true;
   transclude: boolean = true;
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-edit-mode/workspace-edit-mode-overlay.html';
+  template: string = require('./workspace-edit-mode-overlay.html');
 
   scope: {
     [propName: string]: string

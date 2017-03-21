@@ -29,7 +29,7 @@ export class CreateProjectStackLibrary {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'app/workspaces/workspace-details/select-stack/stack-library/create-project-stack-library.html';
+    this.template = require('./create-project-stack-library.html');
 
     this.controller = 'CreateProjectStackLibraryController';
     this.controllerAs = 'createProjectStackLibraryCtrl';

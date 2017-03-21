@@ -25,7 +25,7 @@ export class CheWorkspaceRamAllocationSlider {
     this.restrict = 'E';
 
     this.replace = true;
-    this.templateUrl = 'app/workspaces/workspace-ram-slider/che-workspace-ram-allocation-slider.html';
+    this.template = require('./che-workspace-ram-allocation-slider.html');
 
     // we require ngModel as we want to use it inside our directive
     this.require = 'ngModel';

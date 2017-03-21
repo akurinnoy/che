@@ -25,7 +25,7 @@ export class WorkspaceStatus {
     this.restrict = 'E';
 
     this.replace = true;
-    this.templateUrl = 'app/workspaces/workspace-status/workspace-status.html';
+    this.template = require('./workspace-status.html');
 
     // scope values
     this.scope = {

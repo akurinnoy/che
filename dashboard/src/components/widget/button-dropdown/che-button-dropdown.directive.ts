@@ -23,7 +23,7 @@ export class CheButtonDropdown {
   constructor() {
     this.restrict = 'E';
     this.bindToController = true;
-    this.templateUrl = 'components/widget/button-dropdown/che-button-dropdown.html';
+    this.template = require('./che-button-dropdown.html');
     this.controller = 'CheButtonDropdownCtrl';
     this.controllerAs = 'cheButtonDropdownCtrl';
 

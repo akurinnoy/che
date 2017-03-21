@@ -18,7 +18,7 @@ export class CheFilterSelector {
 
   private restrict: string = 'E';
   private bindToController: boolean = true;
-  private templateUrl: string = 'components/widget/filter-selector/che-filter-selector.html';
+  private template: string = require('./che-filter-selector.html');
   private controller: string = 'CheFilterSelectorController';
   private controllerAs: string = 'cheFilterSelectorController';
   private require: Array<string> = ['ngModel'];

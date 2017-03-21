@@ -27,7 +27,7 @@
  */
 export class CheModalPopup {
   restrict: string;
-  templateUrl: string;
+  template: string;
   transclude: boolean;
   scope: {
     [propName: string]: string
@@ -40,7 +40,7 @@ export class CheModalPopup {
   constructor() {
     this.restrict = 'E';
     this.transclude = true;
-    this.templateUrl = 'components/widget/popup/che-modal-popup.html';
+    this.template = require('./che-modal-popup.html');
 
     // scope values
     this.scope = {

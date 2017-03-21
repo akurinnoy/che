@@ -32,7 +32,7 @@ export class ReadyToGoStacks {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'app/workspaces/workspace-details/select-stack/ready-to-go-stacks/ready-to-go-stacks.html';
+    this.template = require('./ready-to-go-stacks.html');
 
     this.controller = 'ReadyToGoStacksController';
     this.controllerAs = 'readyToGoStacksCtrl';

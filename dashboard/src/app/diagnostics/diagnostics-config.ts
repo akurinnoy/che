@@ -36,7 +36,7 @@ export class DiagnosticsConfig {
     register.app.config(($routeProvider) => {
       $routeProvider.accessWhen('/diagnostic', {
         title: 'Diagnostic',
-        templateUrl: 'app/diagnostics/diagnostics.html'
+        template: require('./diagnostics.html')
       });
     });
 

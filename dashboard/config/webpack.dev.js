@@ -104,7 +104,7 @@ module.exports = function(options) {
         {
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
-          include: [helpers.root('src', 'styles')]
+          //include: [helpers.root('src', 'styles')]
         },
 
         /*
@@ -114,8 +114,16 @@ module.exports = function(options) {
          */
         {
           test: /\.styl$/,
-          use: ['style-loader', 'css-loader', 'stylus-loader'],
-          include: [helpers.root('src', 'styles')]
+          use: [
+            'style-loader',
+            'css-loader',
+            {
+              //loader: 'stylus-loader'
+              loader:'stylus-loader?sourceMap&paths=node_modules/bootstrap-styl&resolve url',
+
+            }
+          ],
+          //include: [helpers.root('src', 'styles')]
         },
       ]
     },
@@ -145,7 +153,9 @@ module.exports = function(options) {
       new DllBundlesPlugin({
         bundles: {
           vendor: [
-            'angular'
+            'angular',
+            'angular-ui-bootstrap',
+            'angular-material'
           ]
         },
         dllDir: helpers.root('dll'),
@@ -213,6 +223,9 @@ module.exports = function(options) {
      * See: https://webpack.github.io/docs/configuration.html#node
      */
     node: {
+      fs: 'empty',
+      tls: 'empty',
+      net: 'empty',
       global: true,
       crypto: 'empty',
       process: true,

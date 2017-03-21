@@ -23,7 +23,7 @@ export class CheListHeaderColumn {
   constructor() {
     this.restrict = 'E';
     this.replace = true;
-    this.templateUrl = 'components/widget/list/che-list-header-column.html';
+    this.template = require('./che-list-header-column.html');
 
     // scope values
     this.scope = {

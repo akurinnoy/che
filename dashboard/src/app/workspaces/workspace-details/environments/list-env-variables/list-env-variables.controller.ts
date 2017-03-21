@@ -153,7 +153,7 @@ export class ListEnvVariablesController {
         envVariables: this.envVariables,
         callbackController: this
       },
-      templateUrl: 'app/workspaces/workspace-details/environments/list-env-variables/edit-variable-dialog/edit-variable-dialog.html'
+      template: require('./edit-variable-dialog.html')
     });
   }
 

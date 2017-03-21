@@ -22,7 +22,7 @@ export class CreateProjectWorkspaces {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'app/projects/create-project/workspaces/create-project-workspaces.html';
+    this.template = require('./create-project-workspaces.html');
     this.bindToController = true;
     this.controller = 'CreateProjectWorkspacesController';
     this.controllerAs = 'createProjectWorkspacesController';

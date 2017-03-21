@@ -33,7 +33,7 @@ export class DashboardConfig {
     register.app.config(($routeProvider) => {
       $routeProvider.accessWhen('/', {
         title: 'Dashboard',
-        templateUrl: 'app/dashboard/dashboard.html',
+        template: require('./dashboard.html'),
         controller: 'DashboardController',
         controllerAs: 'dashboardController',
         resolve: {

@@ -22,7 +22,7 @@ export class CheStepsContainer {
    */
   constructor () {
     this.restrict='E';
-    this.templateUrl = 'components/steps-container/steps-container.html';
+    this.template = require('./steps-container.html');
 
     this.scope = {
       allSteps: '=cheAllSteps',

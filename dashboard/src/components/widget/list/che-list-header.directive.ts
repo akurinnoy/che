@@ -17,7 +17,7 @@
 export class CheListHeader {
   restrict: string;
   replace: boolean;
-  templateUrl: string;
+  template: string;
   transclude: boolean;
   scope: {
     [propName: string]: string
@@ -31,7 +31,7 @@ export class CheListHeader {
     this.restrict = 'E';
     this.replace = true;
     this.transclude = true;
-    this.templateUrl = 'components/widget/list/che-list-header.html';
+    this.template = require('./che-list-header.html');
 
     // scope values
     this.scope = {

@@ -17,7 +17,7 @@
  */
 export class WorkspaceRecipeImport {
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-details/select-stack/recipe-import/workspace-recipe-import.html';
+  template: string = require('./workspace-recipe-import.html');
   replace: boolean = false;
 
   controller: string = 'WorkspaceRecipeImportController';

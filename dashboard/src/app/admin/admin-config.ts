@@ -10,16 +10,16 @@
  */
 'use strict';
 
-import {AdminsPluginsConfig} from './plugins/plugins-config';
+export class DocsConfig {
 
-/**
- * @author Florent Benoit
- */
-export class AdminsConfig {
-
-  constructor(register) {
-    new AdminsPluginsConfig(register);
-
+  constructor(register: any) {
+    // config routes
+    register.app.config(($routeProvider: any) => {
+      $routeProvider.accessWhen('/docs', {
+        title: 'Documentation',
+        template: require('./docs.html')
+      });
+    });
   }
 }
 

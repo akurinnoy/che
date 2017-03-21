@@ -24,7 +24,7 @@ export class CheLabel {
     this.restrict = 'E';
     this.replace = true;
     this.transclude = false;
-    this.templateUrl = 'components/widget/label/che-label.html';
+    this.template = require('./che-label.html');
 
     // scope values
     this.scope = {

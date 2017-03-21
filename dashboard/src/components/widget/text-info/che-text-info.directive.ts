@@ -24,7 +24,7 @@ export class CheTextInfo {
     this.restrict = 'E';
     this.replace = true;
     this.transclude = false;
-    this.templateUrl = 'components/widget/text-info/che-text-info.html';
+    this.template = require('./che-text-info.html');
 
     // scope values
     this.scope = {

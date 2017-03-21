@@ -18,7 +18,7 @@
  */
 export class NavbarRecentWorkspaces {
   restrict: string;
-  templateUrl: string;
+  template: string;
   controller: string;
   controllerAs: string;
   bindToController: boolean;
@@ -29,7 +29,7 @@ export class NavbarRecentWorkspaces {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'app/navbar/recent-workspaces/recent-workspaces.html';
+    this.template = require('./recent-workspaces.html');
 
     this.controller = 'NavbarRecentWorkspacesController';
     this.controllerAs = 'navbarRecentWorkspacesController';

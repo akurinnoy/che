@@ -187,7 +187,7 @@ export class WorkspaceMachineConfigController {
         machineNames: machineNames,
         callbackController: this
       },
-      templateUrl: 'app/workspaces/workspace-details/environments/machine-config/edit-machine-name-dialog/edit-machine-name-dialog.html'
+      template: require('./edit-machine-name-dialog.html')
     });
   }
 
@@ -245,7 +245,7 @@ export class WorkspaceMachineConfigController {
         machine: this.machine,
         callbackController: this
       },
-      templateUrl: 'app/workspaces/workspace-details/environments/machine-config/delete-dev-machine-dialog/delete-dev-machine-dialog.html'
+      template: require('./delete-dev-machine-dialog.html')
     });
   }
 

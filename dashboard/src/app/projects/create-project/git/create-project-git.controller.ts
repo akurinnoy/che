@@ -11,32 +11,26 @@
 'use strict';
 
 /**
- * This class is handling the controller for the git part
+ * Defines a directive for displaying iframe for displaying the IDE.
  * @author Florent Benoit
  */
-export class CreateProjectGitController {
+class IdeIframeButtonLink {
 
   /**
    * Default constructor that is using resource
    * @ngInject for Dependency injection
    */
-  constructor() {
-    this.focus = false;
-  }
+  constructor () {
+    this.restrict='E';
+    this.template = require('./ide-iframe-button-link.html');
 
-  /**
-   * Input for setting the GIT URL gets the focus
-   */
-  setFocus() {
-    this.focus = true;
-  }
 
-  /**
-   * Input for setting the GIT URL losts the focus
-   */
-  lostFocus() {
-    this.focus = false;
+    this.controller = 'IdeIFrameButtonLinkCtrl';
+    this.controllerAs = 'ideIFrameButtonLinkCtrl';
+    this.bindToController = true;
   }
-
 
 }
+
+export default IdeIframeButtonLink;
+

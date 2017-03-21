@@ -27,7 +27,7 @@ export class CreateProjectGit {
     this.bindToController = true;
 
     this.restrict = 'E';
-    this.templateUrl = 'app/projects/create-project/git/create-project-git.html';
+    this.template = require('./create-project-git.html');
   }
 
 

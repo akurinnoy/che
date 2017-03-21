@@ -38,7 +38,7 @@ export class CreateProjectGithub {
     this.bindToController = true;
 
     this.restrict = 'E';
-    this.templateUrl = 'app/projects/create-project/github/create-project-github.html';
+    this.template = require('./create-project-github.html');
 
     // scope values
     this.scope = {

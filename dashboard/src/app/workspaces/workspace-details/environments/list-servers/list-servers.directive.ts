@@ -26,7 +26,7 @@
  */
 export class ListServers {
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-details/environments/list-servers/list-servers.html';
+  template: string = require('./list-servers.html');
 
   controller: string = 'ListServersController';
   controllerAs: string = 'listServersController';

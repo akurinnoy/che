@@ -26,7 +26,7 @@
  */
 export class ListAgents {
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-details/environments/list-agents/list-agents.html';
+  template: string = require('./list-agents.html');
 
   controller: string = 'ListAgentsController';
   controllerAs: string = 'listAgentsController';

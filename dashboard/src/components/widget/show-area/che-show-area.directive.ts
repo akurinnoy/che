@@ -24,7 +24,7 @@
  */
 export class CheShowArea {
   restrict: string;
-  templateUrl: string;
+  template: string;
   transclude: boolean;
   scope: Object;
 
@@ -35,7 +35,7 @@ export class CheShowArea {
   constructor() {
     this.restrict = 'E';
     this.transclude = true;
-    this.templateUrl = 'components/widget/show-area/che-show-area.html';
+    this.template = require('./che-show-area.html');
 
     // scope values
     this.scope = {};

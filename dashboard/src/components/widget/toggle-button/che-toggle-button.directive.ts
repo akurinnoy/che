@@ -16,7 +16,7 @@
  */
 export class CheToggleButton {
   restrict: string;
-  templateUrl: string;
+  template: string;
   scope: {
     [propName: string]: string
   };
@@ -27,7 +27,7 @@ export class CheToggleButton {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'components/widget/toggle-button/che-toggle-button.html';
+    this.template = require('./che-toggle-button.html');
 
     // scope values
     this.scope = {

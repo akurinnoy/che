@@ -162,7 +162,7 @@ export class ListComponentsController {
         components: this.components,
         callbackController: this
       },
-      templateUrl: 'app/stacks/stack-details/list-components/edit-component-dialog/edit-component-dialog.html'
+      template: require('./edit-component-dialog.html')
     });
   }
 

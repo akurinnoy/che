@@ -25,7 +25,7 @@ export class DashboardLastWorkspaces {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'app/dashboard/last-workspaces/last-workspaces.html';
+    this.template = require('./last-workspaces.html');
 
     this.controller = 'DashboardLastWorkspacesController';
     this.controllerAs = 'dashboardLastWorkspacesController';

@@ -97,7 +97,7 @@ export class CreateProjectGithubController {
       controllerAs: 'noGithubOauthDialogController',
       bindToController: true,
       clickOutsideToClose: true,
-      templateUrl: 'app/projects/create-project/github/oauth-dialog/no-github-oauth-dialog.html'
+      template: require('./no-github-oauth-dialog.html')
      });
 
     return;

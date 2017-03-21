@@ -24,7 +24,7 @@ export class CheSelecter {
     this.restrict='E';
     //this.replace= true;
     //this.transclude= true;
-    this.templateUrl = 'components/widget/selecter/che-selecter.html';
+    this.template = require('./che-selecter.html');
 
     // we require ngModel as we want to use it inside our directive
     this.require = ['ngModel'];

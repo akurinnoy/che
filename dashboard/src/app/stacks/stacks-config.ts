@@ -50,7 +50,7 @@ export class StacksConfig {
     register.app.config(($routeProvider: any) => {
       $routeProvider.accessWhen('/stacks', {
         title: 'Stacks',
-        templateUrl: 'app/stacks/list-stacks/list-stacks.html',
+        template: require('./list-stacks/list-stacks.html'),
         controller: 'ListStacksController',
         controllerAs: 'listStacksController'
       })
@@ -58,7 +58,7 @@ export class StacksConfig {
           title: (params: any) => {
             return params.stackId;
           },
-          templateUrl: 'app/stacks/stack-details/stack.html',
+          template: require('./stack-details/stack.html'),
           controller: 'StackController',
           controllerAs: 'stackController'
         });

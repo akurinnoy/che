@@ -168,19 +168,19 @@ export class WorkspacesConfig {
     register.app.config(function ($routeProvider) {
       $routeProvider.accessWhen('/workspaces', {
         title: 'Workspaces',
-        templateUrl: 'app/workspaces/list-workspaces/list-workspaces.html',
+        template: require('./list-workspaces/list-workspaces.html'),
         controller: 'ListWorkspacesCtrl',
         controllerAs: 'listWorkspacesCtrl'
       })
       .accessWhen('/workspace/:namespace*/:workspaceName', {
         title: (params: any) => { return params.workspaceName; },
-        templateUrl: 'app/workspaces/workspace-details/workspace-details.html',
+        template: require('./workspace-details/workspace-details.html'),
         controller: 'WorkspaceDetailsController',
         controllerAs: 'workspaceDetailsController'
       })
       .accessWhen('/create-workspace', {
         title: 'New Workspace',
-        templateUrl: 'app/workspaces/workspace-details/workspace-details.html',
+        template: require('./workspace-details/workspace-details.html'),
         controller: 'WorkspaceDetailsController',
         controllerAs: 'workspaceDetailsController'
       });

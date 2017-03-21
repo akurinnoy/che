@@ -32,7 +32,7 @@ export class DockerRegistryList {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'app/administration/docker-registry/docker-registry-list/docker-registry-list.html';
+    this.template = require('./docker-registry-list.html');
     this.replace = false;
 
     this.controller = 'DockerRegistryListController';

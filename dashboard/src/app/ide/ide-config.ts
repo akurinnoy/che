@@ -31,7 +31,7 @@ export class IdeConfig {
 
     let ideProvider = {
       title: (params) => {return params.workspaceName},
-      templateUrl: 'app/ide/ide.html',
+      template: require('./ide.html'),
       controller: 'IdeCtrl',
       controllerAs: 'ideCtrl'
     };

@@ -114,7 +114,7 @@ export class ListStacksController {
       locals: {
         callbackController: this
       },
-      templateUrl: 'app/stacks/list-stacks/import-stack/import-stack.html'
+      template: require('./import-stack.html')
     });
   }
 

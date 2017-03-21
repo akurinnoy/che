@@ -10,6 +10,9 @@
  */
 'use strict';
 
+import './navbar.html';
+import './navbar.styl';
+
 /**
  * Defines a directive for creating navbar.
  * @author Florent Benoit
@@ -17,7 +20,7 @@
 export class CheNavBar {
   private replace: boolean;
   private restrict: string;
-  private templateUrl: string;
+  private template: string;
   private controller: string;
   private controllerAs: string;
 
@@ -28,7 +31,7 @@ export class CheNavBar {
   constructor () {
     this.restrict = 'E';
     this.replace = false;
-    this.templateUrl = 'app/navbar/navbar.html';
+    this.template = require('./navbar.html');
     this.controller = 'CheNavBarController';
     this.controllerAs = 'navbarCtrl';
   }

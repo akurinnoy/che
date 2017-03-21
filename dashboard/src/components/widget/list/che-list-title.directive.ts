@@ -24,7 +24,7 @@ export class CheListTitle {
     this.restrict='E';
     this.replace= true;
     this.transclude= true;
-    this.templateUrl = 'components/widget/list/che-list-title.html';
+    this.template = require('./che-list-title.html');
 
     // scope values
     this.scope = {

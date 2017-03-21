@@ -54,7 +54,7 @@ module.exports = function(options) {
      *
      * See: http://webpack.github.io/docs/configuration.html#cache
      */
-    //cache: false,
+    cache: false,
 
     context: helpers.root('src'),
 
@@ -79,7 +79,7 @@ module.exports = function(options) {
        *
        * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
        */
-      extensions: ['.ts', '.js', '.json'],
+      extensions: ['.ts', '.js', '.json', '.styl'],
 
       // An array of directory names to be resolved to the current directory
       modules: [helpers.root('src'), helpers.root('node_modules')],
@@ -158,22 +158,31 @@ module.exports = function(options) {
          * Returns file content as string
          *
          */
-        {
-          test: /\.css$/,
-          use: ['to-string-loader', 'css-loader'],
-          exclude: [helpers.root('src', 'styles')]
-        },
+        //{
+        //  test: /\.css$/,
+        //  use: ['style-loader', 'css-loader'],
+        //  //exclude: [helpers.root('src', 'styles')]
+        //},
 
         /**
          * to string and styl loader support for *.styl files (from Angular components)
          * Returns compiled css content as string
          *
          */
-        {
-          test: /\.styl$/,
-          use: ['to-string-loader', 'css-loader', 'styl-loader'],
-          exclude: [helpers.root('src', 'styles')]
-        },
+        //{
+        //  test: /\.styl$/,
+        //  use: [
+        //    'style-loader',
+        //    'css-loader',
+        //    {
+        //      loader: 'stylus-loader',
+        //      //options: {
+        //      //  preferPathResolver: 'webpack'
+        //      //}
+        //    }
+        //  ],
+        //  //exclude: [helpers.root('src', 'styles')]
+        //},
 
         /**
          * Raw loader support for *.html
@@ -184,7 +193,10 @@ module.exports = function(options) {
         {
           test: /\.html$/,
           use: 'raw-loader',
-          exclude: [helpers.root('src/index.html')]
+          //use: 'html-loader?exportAsEs6Default',
+          //use: 'angular-templatecache-loader?module=userDashboard',
+          //'use': 'ngtemplate?relativeTo=./src!html',
+          exclude: [helpers.root('node_modules'), helpers.root('src/index.html')]
         },
 
         /**
@@ -374,9 +386,9 @@ module.exports = function(options) {
        *
        * See: https://gist.github.com/sokra/27b24881210b56bbaff7
        */
-      new LoaderOptionsPlugin({
-        debug: true,
-      }),
+      //new LoaderOptionsPlugin({
+      //  debug: true,
+      //}),
 
       // todo it seems it is extra
       // Fix Angular 2
@@ -416,6 +428,9 @@ module.exports = function(options) {
      * See: https://webpack.github.io/docs/configuration.html#node
      */
     node: {
+      fs: 'empty',
+      tls: 'empty',
+      net: 'empty',
       console: true,
       global: true,
       crypto: 'empty',

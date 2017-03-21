@@ -303,7 +303,7 @@ export class WorkspaceEnvironmentsController {
         environments: this.workspaceConfig.environments,
         callbackController: this
       },
-      templateUrl: 'app/workspaces/workspace-details/environments/add-machine-dialog/add-machine-dialog.html'
+      template: require('./add-machine-dialog.html')
     });
   }
 

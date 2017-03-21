@@ -28,7 +28,7 @@
 export class ListComponents {
   bindToController: boolean;
   restrict: string;
-  templateUrl: string;
+  template: string;
   controller: string;
   controllerAs: string;
   scope: Object;
@@ -39,7 +39,7 @@ export class ListComponents {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'app/stacks/stack-details/list-components/list-components.html';
+    this.template = require('./list-components.html');
 
     this.controller = 'ListComponentsController';
     this.controllerAs = 'listComponentsController';

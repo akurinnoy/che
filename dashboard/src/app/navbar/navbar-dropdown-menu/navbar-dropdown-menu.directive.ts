@@ -30,7 +30,7 @@ export class NavbarDropdownMenu {
 
     this.restrict = 'E';
     this.bindToController = true;
-    this.templateUrl = 'app/navbar/navbar-dropdown-menu/navbar-dropdown-menu.html';
+    this.template = require('./navbar-dropdown-menu.html');
     this.controller = 'NavbarDropdownMenuController';
     this.controllerAs = 'navbarDropdownMenuController';
 

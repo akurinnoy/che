@@ -655,7 +655,7 @@ export class CreateProjectController {
         controller: 'ProjectErrorNotificationController',
         controllerAs: 'projectErrorNotificationController',
         locals: { title: 'Error while creating the project', content: error.statusText + ': ' + error.data.message},
-        templateUrl: 'app/projects/create-project/project-error-notification/project-error-notification.html'
+        template: require('./project-error-notification.html')
       });
     });
 
@@ -719,7 +719,7 @@ export class CreateProjectController {
       controller: 'AddSecretKeyNotificationController',
       controllerAs: 'addSecretKeyNotificationController',
       locals: {repoURL: repoURL, workspaceId: workspaceId},
-      templateUrl: 'app/projects/create-project/add-ssh-key-notification/add-ssh-key-notification.html'
+      template: require('./add-ssh-key-notification.html')
     });
   }
 

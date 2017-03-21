@@ -50,7 +50,7 @@ export class ConfirmDialogService {
         resolveButtonTitle: resolveButtonTitle,
         rejectButtonTitle: rejectButtonTitle ? rejectButtonTitle : 'Close'
       },
-      templateUrl: 'components/service/confirm-dialog/che-confirm-dialog.html'
+      template: require('./che-confirm-dialog.html')
     });
   }
 

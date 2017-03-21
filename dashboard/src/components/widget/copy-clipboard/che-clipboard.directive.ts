@@ -23,7 +23,7 @@ export class CheClipboard {
   constructor() {
     this.restrict = 'E';
     this.replace = true;
-    this.templateUrl = 'components/widget/copy-clipboard/che-clipboard.html';
+    this.template = require('./che-clipboard.html');
 
     // scope value
     this.scope = {

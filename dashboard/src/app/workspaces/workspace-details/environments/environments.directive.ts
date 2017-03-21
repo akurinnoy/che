@@ -26,7 +26,7 @@
  */
 export class WorkspaceEnvironments {
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-details/environments/environments.html';
+  template: string = require('./environments.html');
 
   controller: string = 'WorkspaceEnvironmentsController';
   controllerAs: string = 'workspaceEnvironmentsController';

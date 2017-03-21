@@ -24,7 +24,7 @@ export class CheListItemChecked {
     this.restrict = 'E';
     this.replace = true;
     this.transclude = true;
-    this.templateUrl = 'components/widget/list/che-list-item-checked.html';
+    this.template = require('./che-list-item-checked.html');
 
     // we require ngModel as we want to use it inside our directive
     this.require = ['ngModel'];

@@ -25,7 +25,7 @@ export class CheLoaderCrane {
     this.$window = $window;
     this.restrict = 'E';
     this.replace = true;
-    this.templateUrl = 'components/widget/loader/che-loader-crane.html';
+    this.template = require('./che-loader-crane.html');
 
     // scope values
     this.scope = {

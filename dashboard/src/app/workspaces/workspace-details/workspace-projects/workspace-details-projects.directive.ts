@@ -32,7 +32,7 @@ export class WorkspaceDetailsProjects {
    */
   constructor () {
     this.restrict = 'E';
-    this.templateUrl = 'app/workspaces/workspace-details/workspace-projects/workspace-details-projects.html';
+    this.template = require('./workspace-details-projects.html');
 
     this.controller = 'WorkspaceDetailsProjectsCtrl';
     this.controllerAs = 'workspaceDetailsProjectsCtrl';

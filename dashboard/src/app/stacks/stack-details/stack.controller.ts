@@ -367,7 +367,7 @@ export class StackController {
         callbackController: this,
         stack: this.stack
       },
-      templateUrl: 'app/stacks/stack-details/select-template/select-template.html'
+      template: require('./select-template.html')
     });
   }
 

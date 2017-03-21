@@ -17,7 +17,7 @@
  */
 export class WorkspaceRecipeAuthoring {
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-details/select-stack/recipe-authoring/workspace-recipe-authoring.html';
+  template: string = require('./workspace-recipe-authoring.html');
   replace: boolean = false;
 
   controller: string = 'WorkspaceRecipeAuthoringController';

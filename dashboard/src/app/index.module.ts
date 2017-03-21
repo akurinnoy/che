@@ -25,7 +25,7 @@ import 'angular-resource';
 import 'angular-route';
 import 'angular-sanitize';
 // import 'angular-touch'; // not supported with Angular Material
-// import 'angular-websocket'; // todo fix it
+import 'angular-websocket';
 
 import 'ng-lodash';
 // import 'codemirror';
@@ -34,6 +34,7 @@ import 'ng-lodash';
 // import 'ng-clip';
 import 'angular-uuid4';
 import 'angular-file-upload';
+import 'bootstrap-styl';
 
 import {Register} from '../components/utils/register';
 import {FactoryConfig} from './factories/factories-config';
@@ -60,8 +61,9 @@ import {DemoComponentsCtrl} from './demo-components/demo-components.controller';
 import {CheBranding} from '../components/branding/che-branding.factory';
 import {ChePreferences} from '../components/api/che-preferences.factory';
 
+import './index.styl';
+
 // init module
-// let initModule = angular.module('userDashboard', []);
 let initModule = angular.module('userDashboard', [
   'ngAnimate',
   'ngCookies',
@@ -69,9 +71,9 @@ let initModule = angular.module('userDashboard', [
   'ngSanitize',
   'ngResource',
   'ngRoute',
-  // 'angular-websocket', // todo fix it
+  'angular-websocket',
   'ui.bootstrap',
-  // 'ui.codemirror',
+  // 'ui.codemirror', // todo fix it
   'ngMaterial',
   'ngMessages',
   'angularMoment',
@@ -86,7 +88,7 @@ let initModule = angular.module('userDashboard', [
 
 // add a global resolve flag on all routes (user needs to be resolved first)
 initModule.config(['$routeProvider', ($routeProvider: che.route.IRouteProvider) => {
-  $routeProvider.accessWhen = (path: string, route: any) => {
+  $routeProvider.accessWhen = (path: string, route: ng.route.IRoute) => {
     // route.resolve || (route.resolve = {});
     if (!route.resolve) {
       route.resolve = {};
@@ -109,7 +111,7 @@ initModule.config(['$routeProvider', ($routeProvider: che.route.IRouteProvider) 
     return $routeProvider.when(path, route);
   };
 
-  $routeProvider.accessOtherWise = (route: any) => {
+  $routeProvider.accessOtherWise = (route: ng.route.IRoute) => {
     // route.resolve || (route.resolve = {});
     if (!route.resolve) {
       route.resolve = {};
@@ -143,7 +145,7 @@ initModule.config(['$routeProvider', /*'ngClipProvider',*/ ($routeProvider/*, ng
   if (DEV) {
     $routeProvider.accessWhen('/demo-components', {
       title: 'Demo Components',
-      templateUrl: 'app/demo-components/demo-components.html',
+      template: require('./demo-components/demo-components.html'),
       controller: 'DemoComponentsCtrl',
       controllerAs: 'demoComponentsCtrl'
     });

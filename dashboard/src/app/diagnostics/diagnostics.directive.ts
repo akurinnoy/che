@@ -28,7 +28,7 @@ export class Diagnostics {
 
   replace : boolean = false;
   restrict: string = 'E';
-  templateUrl: string = 'app/diagnostics/diagnostics-widget.html';
+  template: string = require('./diagnostics-widget.html');
   controller: string = 'DiagnosticsController';
   controllerAs: string = 'diagnosticsController';
   bindToController: boolean = true;

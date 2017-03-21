@@ -28,7 +28,7 @@ export class WorkspaceDetailsSsh {
 
 
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-details/workspace-ssh/workspace-details-ssh.html';
+  template: string = require('./workspace-details-ssh.html');
 
   controller: string = 'WorkspaceDetailsSshCtrl';
   controllerAs: string = 'workspaceDetailsSshCtrl';

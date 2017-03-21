@@ -39,7 +39,7 @@ export class ExportWorkspaceController {
         callbackController: this,
         destination: destination
       },
-      templateUrl: 'app/workspaces/workspace-details/export-workspace/dialog/export-tab-dialog.html'
+      template: require('./export-tab-dialog.html')
     });
   }
 

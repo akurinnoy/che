@@ -24,7 +24,7 @@ export class AdminsPluginsConfig {
     // config routes
     register.app.config(function ($routeProvider) {
       $routeProvider.accessWhen('/admin/plugins', {
-        templateUrl: 'app/admin/plugins/plugins.html',
+        template: require('./plugins.html'),
         controller: 'AdminPluginsCtrl',
         controllerAs: 'adminPluginsCtrl'
       });

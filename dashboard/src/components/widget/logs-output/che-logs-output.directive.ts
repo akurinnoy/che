@@ -23,7 +23,7 @@ export class CheLogsOutput {
   constructor($timeout) {
     this.$timeout = $timeout;
     this.restrict = 'E';
-    this.templateUrl = 'components/widget/logs-output/che-logs-output.html';
+    this.template = require('./che-logs-output.html');
 
     // scope values
     this.scope = {

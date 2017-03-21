@@ -26,7 +26,7 @@ interface IUsageChartScope extends ng.IScope {
  */
 export class UsageChart {
   restrict: string;
-  templateUrl: string;
+  template: string;
   replace: boolean;
 
   scope: {
@@ -39,7 +39,7 @@ export class UsageChart {
    */
     constructor () {
     this.restrict = 'E';
-    this.templateUrl = 'app/workspaces/list-workspaces/workspace-item/usage-chart.html';
+    this.template = require('./usage-chart.html');
     this.replace = true;
 
     this.scope = {

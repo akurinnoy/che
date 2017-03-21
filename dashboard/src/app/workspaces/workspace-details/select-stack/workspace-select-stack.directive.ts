@@ -16,7 +16,7 @@
  */
 export class WorkspaceSelectStack {
   restrict: string = 'E';
-  templateUrl: string = 'app/workspaces/workspace-details/select-stack/workspace-select-stack.html';
+  template: string = require('./workspace-select-stack.html');
   replace: boolean = true;
   bindToController: boolean = true;
   controller: string = 'WorkspaceSelectStackController';

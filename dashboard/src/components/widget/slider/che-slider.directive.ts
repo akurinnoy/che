@@ -26,7 +26,7 @@ export class CheSlider {
 
     this.replace = true;
     this.transclude = true;
-    this.templateUrl = 'components/widget/slider/che-slider.html';
+    this.template = require('./che-slider.html');
 
     // scope values
     this.scope = {

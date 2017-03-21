@@ -19,7 +19,7 @@ export class CheHtmlSource {
 
   restrict: string = 'E';
   transclude: boolean = true;
-  templateUrl: string = 'components/widget/html-source/che-html-source.html';
+  template: string = require('./che-html-source.html');
 
   scope: {
     [propName: string]: string

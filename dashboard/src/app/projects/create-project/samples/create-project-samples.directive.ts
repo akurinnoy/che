@@ -18,7 +18,7 @@ export class CreateProjectSamples {
   bindToController: boolean;
   restrict: string;
   controller: string;
-  templateUrl: string;
+  template: string;
   controllerAs: string;
 
   scope: {
@@ -31,7 +31,7 @@ export class CreateProjectSamples {
    */
   constructor() {
     this.restrict = 'E';
-    this.templateUrl = 'app/projects/create-project/samples/create-project-samples.html';
+    this.template = require('./create-project-samples.html');
 
     this.controller = 'CreateProjectSamplesController';
     this.controllerAs = 'createProjectSamplesController';

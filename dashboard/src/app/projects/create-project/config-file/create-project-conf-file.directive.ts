@@ -23,7 +23,7 @@ export class CreateProjectConfFile {
   constructor ($filter) {
     this.$filter = $filter;
     this.restrict='E';
-    this.templateUrl = 'app/projects/create-project/config-file/create-project-conf-file.html';
+    this.template = require('./create-project-conf-file.html');
   }
 
 

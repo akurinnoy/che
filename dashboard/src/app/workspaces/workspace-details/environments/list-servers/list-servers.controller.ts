@@ -174,7 +174,7 @@ export class ListServersController {
         servers: this.servers,
         callbackController: this
       },
-      templateUrl: 'app/workspaces/workspace-details/environments/list-servers/edit-server-dialog/edit-server-dialog.html'
+      template: require('./edit-server-dialog.html')
     });
   }
 

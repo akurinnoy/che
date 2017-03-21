@@ -38,7 +38,7 @@ export class CheProjectItem {
       onCheckboxClick: '&?cheOnCheckboxClick'
     };
 
-    this.templateUrl = 'app/projects/list-projects/project-item/project-item.html';
+    this.template = require('./project-item.html');
 
 
     this.controller = 'ProjectItemCtrl';

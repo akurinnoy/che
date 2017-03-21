@@ -24,6 +24,6 @@ export class CheList {
     this.restrict='E';
     this.replace= true;
     this.transclude= true;
-    this.templateUrl = 'components/widget/list/che-list.html';
+    this.template = require('./che-list.html');
   }
 }
