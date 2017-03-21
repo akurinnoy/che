@@ -110,6 +110,8 @@ module.exports = function(options) {
         {
           test: /\.ts$/,
           use: [
+            'ng-annotate-loader',
+            'babel-loader',
             // todo
             //{
             //  loader: '@angularclass/hmr-loader',
@@ -136,9 +138,9 @@ module.exports = function(options) {
             // todo
             //{
             //  loader: 'angular2-template-loader'
-            }
+            },
           ],
-          exclude: [/\.(spec|e2e)\.ts$/]
+          exclude: [/node_modules/, /\.(spec|e2e)\.ts$/]
         },
 
         /**
@@ -291,15 +293,15 @@ module.exports = function(options) {
        * See: https://webpack.github.io/docs/list-of-plugins.html#contextreplacementplugin
        * See: https://github.com/angular/angular/issues/11580
        */
-      new ContextReplacementPlugin(
-        // The (\\|\/) piece accounts for path separators in *nix and Windows
-        /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
-        helpers.root('src'), // location of your src
-        {
-          // todo
-          // your Angular Async Route paths relative to this root directory
-        }
-      ),
+      //new ContextReplacementPlugin(
+      //  // The (\\|\/) piece accounts for path separators in *nix and Windows
+      //  /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
+      //  helpers.root('src'), // location of your src
+      //  {
+      //    // todo
+      //    // your Angular Async Route paths relative to this root directory
+      //  }
+      //),
 
       /**
        * Plugin: CopyWebpackPlugin

@@ -20,6 +20,11 @@ declare namespace _che {
 
   export namespace route {
 
+    export interface IRouteProvider extends ng.route.IRouteProvider {
+      accessWhen(path: string, route: any): ng.route.IRouteProvider;
+      accessOtherWise(route: any): ng.route.IRouteProvider;
+    }
+
     export interface IRouteParamsService extends ng.route.IRouteParamsService {
       action: string;
       ideParams: string | string[];

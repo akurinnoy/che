@@ -26,8 +26,8 @@ export class CodeMirrorConstant {
         styleActiveLine: true,
         theme: 'che'
       }
-    }).config(function () {
-      uiCodemirrorDirective.$inject = ['$timeout', 'udCodemirrorConfig']; // jshint ignore:line
+    // }).config(function () {
+    //   uiCodemirrorDirective.$inject = ['$timeout', 'udCodemirrorConfig']; // jshint ignore:line
     });
   }
 }

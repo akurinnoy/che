@@ -18,7 +18,6 @@ function getCliServer() {
     string: 'server',
     default: {server: 'http://localhost:8080'}
   };
-  console.log('>>>server: ', minimist(process.argv.slice(2), serverOptions).server);
   return minimist(process.argv.slice(2), serverOptions).server;
 }
 

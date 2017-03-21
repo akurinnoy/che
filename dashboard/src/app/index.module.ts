@@ -9,7 +9,31 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
 import 'angular';
+import 'angular-animate';
+import 'angular-aria';
+import 'angular-ui-bootstrap';
+import 'angular-cookies';
+import 'angular-dropdowns';
+import 'angular-filter';
+import 'angular-material';
+import 'angular-moment';
+import 'angular-messages';
+import 'angular-mocks';
+import 'angular-resource';
+import 'angular-route';
+import 'angular-sanitize';
+// import 'angular-touch'; // not supported with Angular Material
+// import 'angular-websocket'; // todo fix it
+
+import 'ng-lodash';
+// import 'codemirror';
+// import 'angular-ui-codemirror';
+// import 'zeroclipboard';
+// import 'ng-clip';
+import 'angular-uuid4';
+import 'angular-file-upload';
 
 import {Register} from '../components/utils/register';
 import {FactoryConfig} from './factories/factories-config';
@@ -33,24 +57,48 @@ import {WorkspacesConfig} from './workspaces/workspaces-config';
 import {StacksConfig} from './stacks/stacks-config';
 import {DemoComponentsCtrl} from './demo-components/demo-components.controller';
 
+import {CheBranding} from '../components/branding/che-branding.factory';
+import {ChePreferences} from '../components/api/che-preferences.factory';
+
 // init module
-let initModule = angular.module('userDashboard', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute',
-  'angular-websocket', 'ui.bootstrap', 'ui.codemirror', 'ngMaterial', 'ngMessages', 'angularMoment', 'angular.filter',
-  'ngDropdowns', 'ngLodash', 'angularCharts', 'ngClipboard', 'uuid4', 'angularFileUpload']);
+// let initModule = angular.module('userDashboard', []);
+let initModule = angular.module('userDashboard', [
+  'ngAnimate',
+  'ngCookies',
+  // 'ngTouch', // not supported with Angular Material
+  'ngSanitize',
+  'ngResource',
+  'ngRoute',
+  // 'angular-websocket', // todo fix it
+  'ui.bootstrap',
+  // 'ui.codemirror',
+  'ngMaterial',
+  'ngMessages',
+  'angularMoment',
+  'angular.filter',
+  'ngDropdowns',
+  'ngLodash',
+  // 'ngClipboard', // todo fix it
+  'uuid4',
+  'angularFileUpload'
+]);
 
 
 // add a global resolve flag on all routes (user needs to be resolved first)
-initModule.config(['$routeProvider', ($routeProvider) => {
-  $routeProvider.accessWhen = (path, route) => {
-    route.resolve || (route.resolve = {});
-    route.resolve.app = ['cheBranding', '$q', 'chePreferences', (cheBranding, $q, chePreferences) => {
+initModule.config(['$routeProvider', ($routeProvider: che.route.IRouteProvider) => {
+  $routeProvider.accessWhen = (path: string, route: any) => {
+    // route.resolve || (route.resolve = {});
+    if (!route.resolve) {
+      route.resolve = {};
+    }
+    route.resolve.app = ['cheBranding', '$q', 'chePreferences', (cheBranding: CheBranding, $q: ng.IQService, chePreferences: ChePreferences) => {
       let deferred = $q.defer();
       if (chePreferences.getPreferences()) {
         deferred.resolve();
       } else {
         chePreferences.fetchPreferences().then(() => {
           deferred.resolve();
-        }, (error) => {
+        }, (error: any) => {
           deferred.reject(error);
         });
       }
@@ -61,16 +109,19 @@ initModule.config(['$routeProvider', ($routeProvider) => {
     return $routeProvider.when(path, route);
   };
 
-  $routeProvider.accessOtherWise = (route) => {
-    route.resolve || (route.resolve = {});
-    route.resolve.app = ['$q', 'chePreferences', ($q, chePreferences) => {
+  $routeProvider.accessOtherWise = (route: any) => {
+    // route.resolve || (route.resolve = {});
+    if (!route.resolve) {
+      route.resolve = {};
+    }
+    route.resolve.app = ['$q', 'chePreferences', ($q: ng.IQService, chePreferences: ChePreferences) => {
       let deferred = $q.defer();
       if (chePreferences.getPreferences()) {
         deferred.resolve();
       } else {
         chePreferences.fetchPreferences().then(() => {
           deferred.resolve();
-        }, (error) => {
+        }, (error: any) => {
           deferred.reject(error);
         });
       }
@@ -83,11 +134,11 @@ initModule.config(['$routeProvider', ($routeProvider) => {
 
 }]);
 
-var DEV = false;
+var DEV = true;
 
 
 // configs
-initModule.config(['$routeProvider', 'ngClipProvider', ($routeProvider, ngClipProvider) => {
+initModule.config(['$routeProvider', /*'ngClipProvider',*/ ($routeProvider/*, ngClipProvider*/) => {
   // config routes (add demo page)
   if (DEV) {
     $routeProvider.accessWhen('/demo-components', {
@@ -102,8 +153,8 @@ initModule.config(['$routeProvider', 'ngClipProvider', ($routeProvider, ngClipPr
     redirectTo: '/workspaces'
   });
   // add .swf path location using ngClipProvider
-  let ngClipProviderPath = DEV ? 'bower_components/zeroclipboard/dist/ZeroClipboard.swf' : 'assets/zeroclipboard/ZeroClipboard.swf';
-  ngClipProvider.setPath(ngClipProviderPath);
+  // let ngClipProviderPath = DEV ? 'bower_components/zeroclipboard/dist/ZeroClipboard.swf' : 'assets/zeroclipboard/ZeroClipboard.swf';
+  // ngClipProvider.setPath(ngClipProviderPath);
 }]);
 
 
@@ -358,7 +409,6 @@ initModule.config(['$routeProvider', '$locationProvider', '$httpProvider', ($rou
   // add the ETag interceptor for Che API
   $httpProvider.interceptors.push('ETagInterceptor');
 }]);
-
 
 var instanceRegister = new Register(initModule);
 
