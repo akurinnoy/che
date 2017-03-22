@@ -128,7 +128,7 @@
   },
   "scripts": {
     "build": "npm run build:dev",
-    "build:dev": "npm run clean:dist && webpack --config config/webpack.dev.js --progress --profile",
+    "build:dev": "webpack --config config/webpack.dev.js --progress --profile",
     "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist compiled dll",
     "clean:dist": "npm run rimraf -- dist",
     "clean:dll": "npm run rimraf -- dll",

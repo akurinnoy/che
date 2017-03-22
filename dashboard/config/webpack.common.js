@@ -263,7 +263,7 @@ module.exports = function(options) {
         replace: [
           {
             searchVal: '%CONTENT%',
-            replaceVal: helpers.getCliServer(),
+            replaceVal: helpers.getProxyServer(),
             flags: ''
           }
         ]

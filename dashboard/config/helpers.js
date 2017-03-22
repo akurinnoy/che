@@ -13,17 +13,18 @@ function isWebpackDevServer() {
   return process.argv[1] && !! (/webpack-dev-server/.exec(process.argv[1]));
 }
 
-function getCliServer() {
+function getProxyServer() {
   const serverOptions = {
-    string: 'server',
-    default: {server: 'http://localhost:8080'}
+    string: 'env.server',
+    default: {'env.server': 'http://localhost:8080'}
   };
-  return minimist(process.argv.slice(2), serverOptions).server;
+  console.log('>>> ', minimist(process.argv.slice(2), serverOptions).env.server);
+  return minimist(process.argv.slice(2), serverOptions).env.server;
 }
 
 const root = path.join.bind(path, ROOT);
 
 exports.hasProcessFlag = hasProcessFlag;
 exports.isWebpackDevServer = isWebpackDevServer;
-exports.getCliServer = getCliServer;
+exports.getProxyServer = getProxyServer;
 exports.root = root;
