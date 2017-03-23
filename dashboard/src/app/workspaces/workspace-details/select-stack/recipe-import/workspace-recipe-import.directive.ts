@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-recipe-import.styl';
+
 /**
  * Defines a directive for displaying recipe import widget.
  * @author Oleksii Orel

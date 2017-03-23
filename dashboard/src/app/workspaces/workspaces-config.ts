@@ -10,6 +10,9 @@
  */
 'use strict';
 
+import './list-workspaces/list-workspaces.styl';
+import './workspace-details/workspace-details.styl';
+
 import {ListWorkspacesCtrl} from './list-workspaces/list-workspaces.controller';
 import {CheWorkspaceItem} from './list-workspaces/workspace-item/workspace-item.directive';
 import {CheWorkspaceStatus} from './list-workspaces/workspace-status-action/workspace-status.directive';

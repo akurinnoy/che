@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './recent-workspaces.styl';
+
 /**
  * @ngdoc directive
  * @name navbar.directive:NavbarRecentWorkspaces

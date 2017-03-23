@@ -9,6 +9,9 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
+import './select-template/select-template.styl';
+
 import {CheStack} from '../../../components/api/che-stack.factory';
 import {CheNotification} from '../../../components/notification/che-notification.factory';
 import {CheUIElementsInjectorService} from '../../../components/injector/che-ui-elements-injector.service';
@@ -367,7 +370,7 @@ export class StackController {
         callbackController: this,
         stack: this.stack
       },
-      template: require('./select-template.html')
+      template: require('./select-template/select-template.html')
     });
   }
 

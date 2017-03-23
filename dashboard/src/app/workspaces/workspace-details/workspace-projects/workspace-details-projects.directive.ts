@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-details-projects.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:workspaceDetailsProjects

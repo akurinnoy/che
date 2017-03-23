@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-stack-library-filter.styl';
+
 /**
  * @ngdoc directive
  * @name projects.create.directive:cheStackLibraryFilterCtrl

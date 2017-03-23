@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './list-servers.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:listServers

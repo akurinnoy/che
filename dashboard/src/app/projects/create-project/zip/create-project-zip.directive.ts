@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './create-project-zip.styl';
+
 /**
  * Defines a directive for creating project from zip.
  * @author Florent Benoit

@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './stack-item.styl';
+
 /**
  * Defines a directive for items in stack list.
  * Expects in parent scope:

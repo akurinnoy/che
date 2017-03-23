@@ -9,6 +9,9 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
+import './edit-server-dialog/edit-server-dialog.styl';
+
 import {IEnvironmentManagerMachineServer} from '../../../../../components/api/environment/environment-manager-machine';
 import {ConfirmDialogService} from '../../../../../components/service/confirm-dialog/confirm-dialog.service';
 
@@ -174,7 +177,7 @@ export class ListServersController {
         servers: this.servers,
         callbackController: this
       },
-      template: require('./edit-server-dialog.html')
+      template: require('./edit-server-dialog/edit-server-dialog.html')
     });
   }
 

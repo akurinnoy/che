@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './navbar-dropdown-menu.styl';
+
 /**
  * @ngDoc directive
  * @name navbar.directive:NavbarDropdownMenu

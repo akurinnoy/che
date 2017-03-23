@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './docker-registry-list.styl';
+
 /**
  * @ngdoc directive
  * @name administration.docker-registry.docker-registry-list.directive:dockerRegistryList

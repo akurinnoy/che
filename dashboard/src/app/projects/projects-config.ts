@@ -10,6 +10,9 @@
  */
 'use strict';
 
+import './create-project/create-project.styl';
+import './project-details/project-details.styl';
+
 import {CreateProjectController} from './create-project/create-project.controller';
 import {CreateProjectSvc} from './create-project/create-project.service';
 import {CreateProjectGithubController} from './create-project/github/create-project-github.controller';

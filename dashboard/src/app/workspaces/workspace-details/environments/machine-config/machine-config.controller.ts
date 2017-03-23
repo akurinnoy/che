@@ -9,6 +9,10 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
+import './delete-dev-machine-dialog/delete-dev-machine-dialog.styl';
+import './edit-machine-name-dialog/edit-machine-name-dialog.styl';
+
 import {ConfirmDialogService} from '../../../../../components/service/confirm-dialog/confirm-dialog.service';
 import {EnvironmentManager} from '../../../../../components/api/environment/environment-manager';
 import {IEnvironmentManagerMachine} from '../../../../../components/api/environment/environment-manager-machine';
@@ -187,7 +191,7 @@ export class WorkspaceMachineConfigController {
         machineNames: machineNames,
         callbackController: this
       },
-      template: require('./edit-machine-name-dialog.html')
+      template: require('./edit-machine-name-dialog/edit-machine-name-dialog.html')
     });
   }
 
@@ -245,7 +249,7 @@ export class WorkspaceMachineConfigController {
         machine: this.machine,
         callbackController: this
       },
-      template: require('./delete-dev-machine-dialog.html')
+      template: require('./delete-dev-machine-dialog/delete-dev-machine-dialog.html')
     });
   }
 

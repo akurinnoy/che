@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './list-components.styl';
+
 /**
  * @ngdoc directive
  * @name stacks.details.directive:listComponents

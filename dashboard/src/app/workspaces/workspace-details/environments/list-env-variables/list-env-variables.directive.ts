@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './list-env-variables.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:listEnvVariables

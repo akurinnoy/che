@@ -9,6 +9,9 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
+import './add-machine-dialog/add-machine-dialog.styl';
+
 import {CheEnvironmentRegistry} from '../../../../components/api/environment/che-environment-registry.factory';
 import {EnvironmentManager} from '../../../../components/api/environment/environment-manager';
 
@@ -303,7 +306,7 @@ export class WorkspaceEnvironmentsController {
         environments: this.workspaceConfig.environments,
         callbackController: this
       },
-      template: require('./add-machine-dialog.html')
+      template: require('./add-machine-dialog/add-machine-dialog.html')
     });
   }
 

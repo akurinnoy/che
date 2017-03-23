@@ -12,6 +12,7 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /**
  * Webpack constants
@@ -118,12 +119,10 @@ module.exports = function(options) {
             'style-loader',
             'css-loader',
             {
-              //loader: 'stylus-loader'
               loader:'stylus-loader?sourceMap&paths=node_modules/bootstrap-styl&resolve url',
-
             }
           ],
-          //include: [helpers.root('src', 'styles')]
+          include: [helpers.root('src')]
         },
       ]
     },
@@ -216,7 +215,8 @@ module.exports = function(options) {
       },
       proxy: {
         '/api': {
-          target: helpers.getProxyServer()
+          //target: helpers.getProxyServer()
+          target: 'http://localhost:8080'
         }
       }
     },

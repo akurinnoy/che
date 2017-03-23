@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './ready-to-go-stacks.styl';
+
 /**
  * @ngdoc directive
  * @name projects.create.directive:ReadyToGoStacks

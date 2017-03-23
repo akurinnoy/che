@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './create-project-samples.styl';
+
 /**
  * Defines a directive for creating project from samples.
  * @author Florent Benoit

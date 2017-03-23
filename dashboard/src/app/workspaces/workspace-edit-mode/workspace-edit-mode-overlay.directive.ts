@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-edit-mode-overlay.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:workspaceEditModeOverlay

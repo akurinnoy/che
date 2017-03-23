@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './project-item.styl';
+
 /**
  * Defines a directive for items in project list.
  * Expects in parent scope:

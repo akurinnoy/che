@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './dev-machine-label.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:devMachineLabel

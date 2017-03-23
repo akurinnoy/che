@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './project-repository.styl';
+
 /**
  * Defines a directive for displaying project repository widget.
  * @author Oleksii Orel

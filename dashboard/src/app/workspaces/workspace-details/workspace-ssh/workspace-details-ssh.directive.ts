@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-details-ssh.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:workspaceDetailsSSH

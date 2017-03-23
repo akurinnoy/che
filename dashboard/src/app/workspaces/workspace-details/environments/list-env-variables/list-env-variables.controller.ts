@@ -9,6 +9,9 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
+import './edit-variable-dialog/edit-variable-dialog.styl';
+
 import {ConfirmDialogService} from '../../../../../components/service/confirm-dialog/confirm-dialog.service';
 
 interface IEnvironmentVariable {
@@ -153,7 +156,7 @@ export class ListEnvVariablesController {
         envVariables: this.envVariables,
         callbackController: this
       },
-      template: require('./edit-variable-dialog.html')
+      template: require('./edit-variable-dialog/edit-variable-dialog.html')
     });
   }
 

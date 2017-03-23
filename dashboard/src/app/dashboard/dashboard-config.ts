@@ -15,6 +15,8 @@ import {DashboardLastWorkspacesController} from './last-workspaces/last-workspac
 import {DashboardLastWorkspaces} from './last-workspaces/last-workspaces.directive';
 import {DashboardPanel} from './dashboard-panel/dashboard-panel.directive';
 
+import './dashboard.styl';
+
 export class DashboardConfig {
 
   constructor(register) {

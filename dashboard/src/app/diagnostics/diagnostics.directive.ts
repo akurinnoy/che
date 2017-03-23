@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './diagnostics.styl';
+
 /**
  * @ngdoc directive
  * @name diagnostics.directive:diagnostics

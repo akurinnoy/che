@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-status.styl';
+
 /**
  * Defines a directive for creating an indicator of workspace's status, which contains
  * both icon and text representation of current status

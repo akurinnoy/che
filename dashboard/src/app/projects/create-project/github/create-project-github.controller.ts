@@ -10,6 +10,9 @@
  */
 'use strict';
 
+import './create-project-github.styl';
+import './oauth-dialog/no-github-oauth-dialog.styl';
+
 /**
  * This class is handling the controller for the GitHub part
  * @author Stéphane Daviet
@@ -97,7 +100,7 @@ export class CreateProjectGithubController {
       controllerAs: 'noGithubOauthDialogController',
       bindToController: true,
       clickOutsideToClose: true,
-      template: require('./no-github-oauth-dialog.html')
+      template: require('./oauth-dialog/no-github-oauth-dialog.html')
      });
 
     return;

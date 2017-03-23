@@ -10,6 +10,10 @@
  */
 'use strict';
 
+
+import './list-stacks/list-stacks.styl';
+import './stack-details/stack.styl';
+
 import {ListStacksController} from './list-stacks/list-stacks.controller';
 import {StackItemController} from './list-stacks/stack-item/stack-item.controller';
 import {StackItem} from './list-stacks/stack-item/stack-item.directive';

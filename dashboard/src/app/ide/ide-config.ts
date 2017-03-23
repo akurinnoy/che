@@ -12,6 +12,8 @@
 
 /*exported IdeCtrl, IdeSvc */
 
+import './ide.styl';
+
 import IdeCtrl from './ide.controller';
 import IdeSvc from './ide.service';
 

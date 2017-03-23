@@ -202,7 +202,7 @@ export class DockerRegistryListController {
       controller: 'EditRegistryController',
       controllerAs: 'editRegistryController',
       locals: {registry: registry},
-      template: require('./edit-registry.html')
+      template: require('./edit-registry/edit-registry.html')
     });
   }
 }

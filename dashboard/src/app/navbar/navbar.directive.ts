@@ -10,7 +10,6 @@
  */
 'use strict';
 
-import './navbar.html';
 import './navbar.styl';
 
 /**

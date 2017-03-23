@@ -9,6 +9,9 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
+import './edit-component-dialog/edit-component-dialog.styl';
+
 import {ConfirmDialogService} from '../../../../components/service/confirm-dialog/confirm-dialog.service';
 
 interface IComponent {
@@ -162,7 +165,7 @@ export class ListComponentsController {
         components: this.components,
         callbackController: this
       },
-      template: require('./edit-component-dialog.html')
+      template: require('./edit-component-dialog/edit-component-dialog.html')
     });
   }
 

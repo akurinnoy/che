@@ -14,6 +14,9 @@
 
 import {AdminPluginsCtrl} from './plugins.controller';
 import {PluginsFilter} from './plugins-filter';
+
+import './plugins.styl';
+
 export class AdminsPluginsConfig {
 
   constructor(register) {

@@ -9,6 +9,9 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
+import './edit-command-dialog/edit-command-dialog.styl';
+
 import {ConfirmDialogService} from '../../../../components/service/confirm-dialog/confirm-dialog.service';
 
 /**
@@ -168,7 +171,7 @@ export class ListCommandsController {
         commands: this.commands,
         callbackController: this
       },
-      template: require('./edit-command-dialog.html')
+      template: require('./edit-command-dialog/edit-command-dialog.html')
     });
   }
 

@@ -10,6 +10,7 @@
  */
 'use strict';
 
+import './che-stack-library-selecter.styl';
 
 /**
  * Defines a directive for the stack library selecter.

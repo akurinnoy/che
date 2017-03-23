@@ -9,6 +9,10 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
+import './add-ssh-key-notification/add-ssh-key-notification.styl';
+import './project-error-notification/project-error-notification.styl';
+
 import {CheAPI} from '../../../components/api/che-api.factory';
 import {CheStack} from '../../../components/api/che-stack.factory';
 import {CreateProjectSvc} from './create-project.service';
@@ -655,7 +659,7 @@ export class CreateProjectController {
         controller: 'ProjectErrorNotificationController',
         controllerAs: 'projectErrorNotificationController',
         locals: { title: 'Error while creating the project', content: error.statusText + ': ' + error.data.message},
-        template: require('./project-error-notification.html')
+        template: require('./project-error-notification/project-error-notification.html')
       });
     });
 
@@ -719,7 +723,7 @@ export class CreateProjectController {
       controller: 'AddSecretKeyNotificationController',
       controllerAs: 'addSecretKeyNotificationController',
       locals: {repoURL: repoURL, workspaceId: workspaceId},
-      template: require('./add-ssh-key-notification.html')
+      template: require('./add-ssh-key-notification/add-ssh-key-notification.html')
     });
   }
 

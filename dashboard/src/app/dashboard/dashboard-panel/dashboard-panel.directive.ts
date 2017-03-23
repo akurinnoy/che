@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './dashboard-panel.styl';
+
 /**
  * @ngdoc directive
  * @name dashboard.directive:DashboardPanel

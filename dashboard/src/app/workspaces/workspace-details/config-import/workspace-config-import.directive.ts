@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-config-import.styl';
+
 /**
  * Defines a directive for displaying config import widget.
  * @author Oleksii Kurinnyi

@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './list-agents.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:listAgents

@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './last-workspaces.styl';
+
 /**
  * @ngdoc directive
  * @name dashboard.directive:DashboardLastWorkspaces

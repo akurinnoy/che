@@ -9,6 +9,9 @@
  *   Codenvy, S.A. - initial API and implementation
  */
 'use strict';
+
+import './import-stack/import-stack.styl';
+
 import {CheStack} from '../../../components/api/che-stack.factory';
 import {CheNotification} from '../../../components/notification/che-notification.factory';
 import {CheProfile} from '../../../components/api/che-profile.factory';
@@ -114,7 +117,7 @@ export class ListStacksController {
       locals: {
         callbackController: this
       },
-      template: require('./import-stack.html')
+      template: require('./import-stack/import-stack.html')
     });
   }
 

@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './environments.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:workspaceEnvironments

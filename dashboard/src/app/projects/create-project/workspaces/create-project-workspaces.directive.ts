@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './create-project-workspaces.styl';
+
 /**
  * Defines a directive for displaying select workspace widget.
  * @author Oleksii Orel

@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './ide-iframe.styl';
+
 /**
  * Defines a directive for displaying iframe for displaying the IDE.
  * @author Florent Benoit

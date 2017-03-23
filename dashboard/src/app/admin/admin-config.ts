@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './docs.styl';
+
 export class DocsConfig {
 
   constructor(register: any) {

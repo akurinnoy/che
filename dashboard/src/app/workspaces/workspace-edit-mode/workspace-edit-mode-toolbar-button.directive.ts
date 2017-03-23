@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-edit-mode-toolbar-button.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:workspaceEditModeToolbarButton

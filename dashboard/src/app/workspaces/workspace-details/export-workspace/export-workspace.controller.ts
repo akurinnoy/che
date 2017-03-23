@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './dialog/export-workspace-dialog.styl';
+
 /**
  * @ngdoc controller
  * @name workspace.export.controller:ExportWorkspaceController
@@ -39,7 +41,7 @@ export class ExportWorkspaceController {
         callbackController: this,
         destination: destination
       },
-      template: require('./export-tab-dialog.html')
+      template: require('./dialog/export-tab-dialog.html')
     });
   }
 

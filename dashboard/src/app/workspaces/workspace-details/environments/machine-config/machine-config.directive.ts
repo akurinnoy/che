@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './machine-config.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:workspaceMachineConfig

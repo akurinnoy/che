@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-status-indicator.styl';
+
 /**
  * Defines a directive for creating simple indicator of workspace's status.
  * @author Oleksii Kurinnyi

@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-workspace-ram-allocation-slider.styl';
+
 /**
  * Defines a directive for creating RAM allocation slider that are working either on desktop or on mobile devices.
  * It will change upon width of the screen

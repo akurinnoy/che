@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './create-project-git.styl';
+
 /**
  * Defines a directive for creating project from git.
  * @author Florent Benoit

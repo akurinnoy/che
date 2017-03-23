@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-status.styl';
+
 /**
  * @ngdoc directive
  * @name workspace.status.directive:cheWorkspaceStatus

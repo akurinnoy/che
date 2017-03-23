@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './list-commands.styl';
+
 /**
  * @ngdoc directive
  * @name workspaces.details.directive:listCommands

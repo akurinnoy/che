@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-item.styl';
+
 /**
  * Defines a directive for items in workspace list.
  * Expects in parent scope:

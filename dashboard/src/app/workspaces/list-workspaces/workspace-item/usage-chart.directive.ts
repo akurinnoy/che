@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './usage-chart.styl';
+
 interface IUsageChartScope extends ng.IScope {
   usedColor: string;
   loaded: boolean;

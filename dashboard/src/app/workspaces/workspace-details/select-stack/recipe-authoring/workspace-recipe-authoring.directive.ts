@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './workspace-recipe-authoring.styl';
+
 /**
  * Defines a directive for displaying recipe authoring widget.
  * @author Oleksii Orel
