@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-filter-selector.styl';
+
 /**
  * Defines the class for filter selector widget.
  * @author Ann Shumilova

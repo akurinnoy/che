@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-frame.styl';
+
 export class CheFrame {
 
   /**

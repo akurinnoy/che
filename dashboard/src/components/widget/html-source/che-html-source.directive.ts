@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-html-source.styl';
+
 /**
  * Defines a directive for displaying the block with source code as well (for demos).
  * @author Florent Benoit

@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-button-dropdown.styl';
+
 /**
  * Defines the super class for for all buttons
  * @author Florent Benoit

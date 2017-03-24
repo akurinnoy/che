@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-learn-more.styl';
+
 /**
  * @ngdoc directive
  * @name components.directive:cheLearnMore

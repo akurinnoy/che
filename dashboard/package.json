@@ -7,7 +7,10 @@
   },
   "license": "EPL-1.0",
   "devDependencies": {
+    "@types/angular": "^1.6.10",
+    "@types/angular-material": "^1.1.46",
     "@types/codemirror": "0.0.38",
+    "@types/jquery": "^2.0.41",
     "@types/node": "^7.0.8",
     "add-asset-html-webpack-plugin": "^1.0.2",
     "angular": "1.6.3",

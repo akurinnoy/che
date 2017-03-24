@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-accordion.styl';
+
 /**
  * Defines a directive for Accordion component
  * @author Oleksii Kurinnyi

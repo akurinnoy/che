@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './steps-contaner.styl';
+
 /**
  * Defines a directive for displaying steps of creating project or loading workspace
  * @author Oleksii Kurinnyi

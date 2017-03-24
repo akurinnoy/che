@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-description.styl';
+
 /**
  * Defines a directive for creating description widget, which can have "Learn more" link as well.
  *

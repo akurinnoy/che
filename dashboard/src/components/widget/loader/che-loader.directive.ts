@@ -10,6 +10,10 @@
  */
 'use strict';
 
+import './che-loader.styl';
+import './che-loader-animation-panel.styl';
+import './che-loader-bottom-bar.styl';
+
 /**
  * Defines a directive for Loader
  * @author Oleksii Kurinnyi

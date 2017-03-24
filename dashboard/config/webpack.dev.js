@@ -94,7 +94,7 @@ module.exports = function(options) {
               configFile: 'tslint.json'
             }
           }],
-          exclude: [/\.(spec|e2e)\.ts$./]
+          exclude: [/node_modules/, /\.(spec|e2e)\.ts$./]
         },
 
         /*
@@ -122,7 +122,7 @@ module.exports = function(options) {
               loader:'stylus-loader?sourceMap&paths=node_modules/bootstrap-styl&resolve url',
             }
           ],
-          include: [helpers.root('src')]
+          //include: [helpers.root('src')]
         },
       ]
     },
@@ -153,8 +153,31 @@ module.exports = function(options) {
         bundles: {
           vendor: [
             'angular',
+            'angular-animate',
+            'angular-aria',
             'angular-ui-bootstrap',
-            'angular-material'
+            'angular-cookies',
+            'angular-dropdowns',
+            'angular-filter',
+            'angular-material',
+            'angular-moment',
+            'angular-messages',
+            'angular-mocks',
+            'angular-resource',
+            'angular-route',
+            'angular-sanitize',
+            'angular-touch',
+            'angular-websocket',
+            'ng-lodash',
+            'codemirror',
+            'angular-ui-codemirror',
+            'zeroclipboard',
+            'ng-clip',
+            'angular-uuid4',
+            'angular-file-upload',
+            'bootstrap-styl',
+            'jquery',
+            'js-yaml',
           ]
         },
         dllDir: helpers.root('dll'),

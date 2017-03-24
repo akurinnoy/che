@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-confirm-dialog.styl';
+
 /**
  * This class is handling the data for custom confirm dialog
  *

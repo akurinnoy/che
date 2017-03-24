@@ -10,6 +10,7 @@
  */
 'use strict';
 
+import './che-button.styl';
 
 /**
  * Defines the super class for for all buttons

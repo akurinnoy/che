@@ -20,6 +20,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 //const ngcWebpack = require('ngc-webpack');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
 /**
  * Che plugins
@@ -79,7 +80,7 @@ module.exports = function(options) {
        *
        * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
        */
-      extensions: ['.ts', '.js', '.json'],
+      extensions: ['.ts', '.js', '.json', '.styl'],
 
       // An array of directory names to be resolved to the current directory
       modules: [helpers.root('src'), helpers.root('node_modules')],
@@ -225,6 +226,10 @@ module.exports = function(options) {
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
     plugins: [
+      new ProvidePlugin({
+        'window.jQuery': 'jquery',
+      }),
+
       new CheCopyAndReplacePlugin({
         sourceFile: helpers.root('src/app/colors', 'che-color.constant.ts.template'),
         destinationFile: helpers.root('src/app/colors', 'che-color.constant.ts'),

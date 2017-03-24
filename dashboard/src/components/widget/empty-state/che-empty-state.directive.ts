@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-empty-state.styl';
+
 /**
  * Defines a directive for creating empty state widget that are working either on desktop or on mobile devices.
  * It will change upon width of the screen

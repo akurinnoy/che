@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import 'demo-source-render.styl';
+
 /**
  * @ngdoc directive
  * @name demoSourceRender

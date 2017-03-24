@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-clipboard.styl';
+
 /**
  * Defines a directive for the clipboard.
  * @author Oleksii Orel

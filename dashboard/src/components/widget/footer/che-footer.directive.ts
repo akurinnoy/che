@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-footer.styl';
+
 /**
  * @ngdoc directive
  * @name components.directive:cheFooter

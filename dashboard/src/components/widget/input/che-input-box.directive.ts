@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-input-box.styl';
+
 /**
  * Defines a directive for creating input that are working either on desktop or on mobile devices.
  * It will change upon width of the screen

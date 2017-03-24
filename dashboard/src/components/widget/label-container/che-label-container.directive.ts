@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-label-container.styl';
+
 /**
  * Defines a directive for creating label container.
  * @author Florent Benoit

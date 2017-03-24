@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-loader-crane.styl';
+
 /**
  * Defines a directive for animating iteration process
  * @author Oleksii Kurinnyi
@@ -36,7 +38,7 @@ export class CheLoaderCrane {
     };
   }
 
-  link($scope, element) {
+  link($scope: ng.IScope, element: ng.IAugmentedJQuery) {
     let jqCrane = element.find('.che-loader-crane'),
       craneHeight = jqCrane.height(),
       craneWidth = jqCrane.width(),

@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './codemirror.styl';
+
 export class CodeMirrorConstant {
 
   constructor(register) {

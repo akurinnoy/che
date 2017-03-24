@@ -35,6 +35,8 @@ import 'ng-lodash';
 import 'angular-uuid4';
 import 'angular-file-upload';
 import 'bootstrap-styl';
+import 'jquery';
+import 'js-yaml';
 
 import {Register} from '../components/utils/register';
 import {FactoryConfig} from './factories/factories-config';

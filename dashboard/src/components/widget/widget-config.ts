@@ -10,6 +10,9 @@
  */
 'use strict';
 
+import './dialog/dialog.styl';
+import './dropdown/dropdown.styl';
+
 import {CheAccordion} from './accordion/che-accordion.directive';
 import {CheButtonPrimary} from './button/che-button-primary.directive';
 import {CheButtonPrimaryFlat} from './button/che-button-primary-flat.directive';

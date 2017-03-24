@@ -10,6 +10,8 @@
  */
 'use strict';
 
+import './che-dropzone.styl';
+
 /**
  * @ngdoc directive
  * @name components.directive:cheDropzone
