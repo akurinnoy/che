@@ -208,10 +208,10 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
-angular-animate@1.4.8:
-  version "1.4.8"
-  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.4.8.tgz#2c388a066d16677aecbebbddaf27a217f7002a57"
-  integrity sha1-LDiKBm0WZ3rsvrvdryeiF/cAKlc=
+angular-animate@1.6.10:
+  version "1.6.10"
+  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.10.tgz#c520f6d341370e34e0a62060c99bcf47b7d7db8c"
+  integrity sha512-RU9ZJbTspq0W0x675H5k1DeSgKbAFfp2aiYoNGdlD+wQNKvwwMR5ho+EkDKkx9zE02a5goe8Z6EhhYPQSff9dA==
 
 angular-aria@1.4.8:
   version "1.4.8"
@@ -314,10 +314,10 @@ angular@*:
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.7.5.tgz#d1c1c01c6f5dc835638f3f9aa51012857bdac49e"
   integrity sha512-760183yxtGzni740IBTieNuWLtPNAoMqvmC0Z62UoU0I3nqk+VJuO3JbQAXOyvo3Oy/ZsdNQwrSTh/B0OQZjNw==
 
-angular@1.4.8:
-  version "1.4.8"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.4.8.tgz#f4573d5019d21ebf44a6b5c28a14fbd9d5967449"
-  integrity sha1-9Fc9UBnSHr9EprXCihT72dWWdEk=
+angular@1.6.10:
+  version "1.6.10"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.10.tgz#eed3080a34d29d0f681ff119b18ce294e3f74826"
+  integrity sha512-PCZ5/hVdvPQiYyH0VwsPjrErPHRcITnaXxhksceOXgtJeesKHLA7KDu4X/yvcAi+1zdGgGF+9pDxkJvghXI9Wg==
 
 ansi-align@^1.1.0:
   version "1.1.0"

@@ -96,8 +96,8 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "angular": "1.4.8",
-    "angular-animate": "1.4.8",
+    "angular": "1.6.10",
+    "angular-animate": "1.6.10",
     "angular-aria": "1.4.8",
     "angular-cookies": "1.4.8",
     "angular-file-upload": "2.0.0",
