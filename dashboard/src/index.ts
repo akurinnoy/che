@@ -53,10 +53,12 @@ import 'angular-messages';
 import 'angular-moment';
 import 'angular-filter';
 import 'angular-uuid4';
+import 'angular-patternfly';
 import 'ng-lodash';
 import '../node_modules/angular-gravatar/build/md5.min.js';
 import '../node_modules/angular-gravatar/build/angular-gravatar.min.js';
 import '../node_modules/angular-websocket/dist/angular-websocket.min.js';
+import '../node_modules/patternfly/dist/js/patternfly-settings.min.js';
 
 // include UD app
 import './app/index.module';

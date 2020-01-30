@@ -58,6 +58,7 @@ export class DemoComponentsController {
   overlayConfig: ICheEditModeOverlayConfig;
 
   loader: any;
+  pf: any = {};
 
   /**
    * Default constructor that is using resource
@@ -158,6 +159,114 @@ export class DemoComponentsController {
     };
 
     this.createLoader();
+
+this.pf.config = {
+         selectItems: false,
+         itemsAvailable: true,
+         multiSelect: false,
+         dblClick: false,
+         selectionMatchProp: 'name',
+         selectedItems: [],
+         checkDisabled: () => console.log('>>> checkDisabled'),
+         showSelectBox: true,
+         onSelect: () => console.log('>>> handleSelect'),
+         onSelectionChange: () => console.log('>>> handleSelectionChange'),
+         onCheckBoxChange: () => console.log('>>> handleCheckBoxChange'),
+         onClick: () => console.log('>>> handleClick'),
+         onDblClick: () => console.log('>>> handleDblClick')
+       };
+
+       this.pf.items = [
+         {
+           name: "Fred Flintstone",
+           address: "20 Dinosaur Way",
+           city: "Bedrock",
+           state: "Washingstone"
+         },
+         {
+           name: "John Smith",
+           address: "415 East Main Street",
+           city: "Norfolk",
+           state: "Virginia"
+         },
+         {
+           name: "Frank Livingston",
+           address: "234 Elm Street",
+           city: "Pittsburgh",
+           state: "Pennsylvania"
+         },
+         {
+           name: "Judy Green",
+           address: "2 Apple Boulevard",
+           city: "Cincinatti",
+           state: "Ohio"
+         },
+         {
+           name: "Pat Thomas",
+           address: "50 Second Street",
+           city: "New York",
+           state: "New York"
+         },
+         {
+           name: "Betty Rubble",
+           address: "30 Dinosaur Way",
+           city: "Bedrock",
+           state: "Washingstone"
+         },
+         {
+           name: "Martha Smith",
+           address: "415 East Main Street",
+           city: "Norfolk",
+           state: "Virginia"
+         },
+         {
+           name: "Liz Livingston",
+           address: "234 Elm Street",
+           city: "Pittsburgh",
+           state: "Pennsylvania"
+         },
+         {
+           name: "Howard McGovern",
+           address: "22 Oak Street",
+           city: "Denver",
+           state: "Colorado"
+         },
+         {
+           name: "Joyce Brown",
+           address: "72 Bourbon Way",
+           city: "Nashville",
+           state: "Tennessee"
+         },
+         {
+           name: "Mike Nichols",
+           address: "21 Jump Street",
+           city: "Hollywood",
+           state: "California"
+         },
+         {
+           name: "Mark Edwards",
+           address: "17 Cross Street",
+           city: "Boston",
+           state: "Massachusetts"
+         },
+         {
+           name: "Chris Thomas",
+           address: "50 Second Street",
+           city: "New York",
+           state: "New York"
+         }
+       ];
+
+       this.pf.emptyStateConfig = {
+         icon: 'pficon-warning-triangle-o',
+         title: 'No Items Available',
+         info: "This is the Empty State component. The goal of a empty state pattern is to provide a good first impression that helps users to achieve their goals. It should be used when a view is empty because no objects exists and you want to guide the user to perform specific actions.",
+         helpLink: {
+           label: 'For more information please see',
+           urlLabel: 'pfExample',
+           url : '#/api/patternfly.views.directive:pfEmptyState'
+         }
+       };
   }
 
   /**

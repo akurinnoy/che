@@ -21,27 +21,21 @@
 
     <md-tab label="Font"
             md-on-select="demoComponentsController.onSelectTab(demoComponentsController.tab.Font)">
-      <p>Headings</p>
-      <che-html-source>
-        <h1>This is h1
-          <small>Secondary text</small>
-        </h1>
-        <h2>This is h2
-          <small>Secondary text</small>
-        </h2>
-        <h3>This is h3
-          <small>Secondary text</small>
-        </h3>
-        <h4>This is h4
-          <small>Secondary text</small>
-        </h4>
-        <h5>This is h5
-          <small>Secondary text</small>
-        </h5>
-        <h6>This is h6
-          <small>Secondary text</small>
-        </h6>
-      </che-html-source>
+
+        <pf-card-view id="exampleCardView"
+            config="demoComponentsController.pf.config"
+            items="demoComponentsController.pf.items" >
+          <div class="col-md-12">
+            <span>{{item.name}}</span>
+          </div>
+          <div class="col-md-12">
+            <span>{{item.address}}</span>
+          </div>
+          <div class="col-md-12">
+            <span>{{item.city}}, {{item.state}}</span>
+          </div>
+        </pf-card-view>
+
     </md-tab>
 
     <md-tab label="Panel"

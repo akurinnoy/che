@@ -40,7 +40,7 @@ import {CheBranding} from '../components/branding/che-branding';
 // init module
 const initModule = angular.module('userDashboard', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute',
   'angular-websocket', 'ui.bootstrap', 'ngMaterial', 'ngMessages', 'angularMoment', 'angular.filter',
-  'ngLodash', 'uuid4', 'angularFileUpload', 'ui.gravatar']);
+  'ngLodash', 'uuid4', 'angularFileUpload', 'ui.gravatar', 'patternfly', 'patternfly.views']);
 
 // register singletons which can be used before resumeBootstrap
 const cheBranding = CheBranding.get();
