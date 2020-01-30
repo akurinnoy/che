@@ -36,11 +36,29 @@ import {TeamsConfig} from './teams/teams-config';
 import {ProfileConfig} from './profile/profile-config';
 import {ResourceFetcherService} from '../components/service/resource-fetcher/resource-fetcher.service';
 import {CheBranding} from '../components/branding/che-branding';
+import { GetStartedNextConfig } from './get-started-next/get-started-config';
 
 // init module
-const initModule = angular.module('userDashboard', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute',
-  'angular-websocket', 'ui.bootstrap', 'ngMaterial', 'ngMessages', 'angularMoment', 'angular.filter',
-  'ngLodash', 'uuid4', 'angularFileUpload', 'ui.gravatar']);
+const initModule = angular.module('userDashboard',
+  [
+    'ngAnimate',
+    'ngCookies',
+    'ngTouch',
+    'ngSanitize',
+    'ngResource',
+    'ngRoute',
+    'angular-websocket',
+    'ui.bootstrap',
+    'ngMaterial',
+    'ngMessages',
+    'angularMoment',
+    'angular.filter',
+    'ngLodash',
+    'uuid4',
+    'angularFileUpload',
+    'ui.gravatar',
+  ]
+);
 
 // register singletons which can be used before resumeBootstrap
 const cheBranding = CheBranding.get();
@@ -84,7 +102,7 @@ function keycloakLoad(keycloakSettings: any) {
       return cheBranding.ready.then(() => {
         reject(`<div  class="error-header"><span>Certificate Error</span><a href="/"><i class="fa fa-times"></i></a></div>
  <div class="error-body"><p>Your Che host may be signed with a self-signed certificate. To resolve this issue, try these possible solutions:</p>
- <p>1.) Import CA certificate info into your browser. You can find instructions on how to do this in you 
+ <p>1.) Import CA certificate info into your browser. You can find instructions on how to do this in you
  <a href="${cheBranding.getDocs().certificate}" target="_blank">Che documentation</a>.</p>
  <p>2.) Open <a href="${script.src}" target="_blank">the link for your Che host</a> in a new tab and add an exclusion.</p>
  <br/>After trying each of these solutions, <a href="/">refresh your Dashboard</a> to see if the problem has been resolved.</div>`);
