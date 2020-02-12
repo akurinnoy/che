@@ -212,7 +212,6 @@ describe(`cheButtonDropdown >`, () => {
 
         it(`should call an action callback when clicked >`, () => {
           secondOtherActionEl.click();
-          $scope.$digest();
 
           expect(secondOtherActionConfig.action).toHaveBeenCalled();
         });
@@ -221,7 +220,6 @@ describe(`cheButtonDropdown >`, () => {
 
           it(`shouldn't call a callback when clicked`, () => {
             $scope.model.disabled = true;
-            $scope.$digest();
 
             expect(secondOtherActionConfig.action).not.toHaveBeenCalled();
           });

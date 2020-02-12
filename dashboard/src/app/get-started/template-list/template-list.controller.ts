@@ -38,6 +38,7 @@ export class TemplateListController {
     'cheNotification'];
 
   ephemeralMode: boolean;
+  toolbarConfig: any;
 
   private $q: ng.IQService;
   private $log: ng.ILogService;
@@ -109,6 +110,33 @@ export class TemplateListController {
       this.ephemeralMode = workspaceSettings['che.workspace.persist_volumes.default'] === 'false';
       this.init();
     });
+
+    const filterConfig = {
+      appliedFilters: [],
+      resultsCount: 12,
+      fields: [
+        {
+          id: 'name',
+          title: 'Name',
+          placeholder: 'Filter by...',
+          filterType: 'text'
+        }
+      ]
+    };
+
+    this.toolbarConfig = {
+      // viewsConfig: viewsConfig,
+      filterConfig: filterConfig,
+      // sortConfig: sortConfig,
+      // actionsConfig: actionsConfig
+    };
+
+    (this as any).filterConfig = {
+      inputName: 'fiter-field'
+    };
+    (this as any).onFilterChange = newValue => {
+      console.log('>>> new filter value', newValue);
+    };
   }
 
   private init(): void {

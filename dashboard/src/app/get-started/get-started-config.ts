@@ -13,7 +13,6 @@
 
 import {TemplateListController} from './template-list/template-list.controller';
 import {Template} from './template/template.directive';
-import { CheDashboardConfigurationService } from '../../components/branding/che-dashboard-configuration.service';
 import { GetStartedConfigService } from './get-started-config.service';
 
 /**
