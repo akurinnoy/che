@@ -555,6 +555,7 @@ new NavbarConfig(instanceRegister);
 new WorkspacesConfig(instanceRegister);
 new DashboardConfig(instanceRegister);
 new StacksConfig(instanceRegister);
+new GetStartedNextConfig(instanceRegister);
 new GetStartedConfig(instanceRegister);
 new FactoryConfig(instanceRegister);
 new OrganizationsConfig(instanceRegister);
