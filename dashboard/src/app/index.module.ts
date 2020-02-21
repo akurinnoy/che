@@ -25,7 +25,6 @@ import {NavbarConfig} from './navbar/navbar-config';
 import {ProxySettingsConfig} from './proxy/proxy-settings.constant';
 import {WorkspacesConfig} from './workspaces/workspaces-config';
 import {StacksConfig} from './stacks/stacks-config';
-import {GetStartedConfig} from './get-started/get-started-config';
 import {DemoComponentsController} from './demo-components/demo-components.controller';
 import {ChePreferences} from '../components/api/che-preferences.factory';
 import {RoutingRedirect} from '../components/routing/routing-redirect.factory';
@@ -36,7 +35,7 @@ import {TeamsConfig} from './teams/teams-config';
 import {ProfileConfig} from './profile/profile-config';
 import {ResourceFetcherService} from '../components/service/resource-fetcher/resource-fetcher.service';
 import {CheBranding} from '../components/branding/che-branding';
-import { GetStartedNextConfig } from './get-started-next/get-started-config';
+import { GetStartedConfig } from './get-started/get-started-config';
 
 // init module
 const initModule = angular.module('userDashboard',
@@ -555,7 +554,6 @@ new NavbarConfig(instanceRegister);
 new WorkspacesConfig(instanceRegister);
 new DashboardConfig(instanceRegister);
 new StacksConfig(instanceRegister);
-new GetStartedNextConfig(instanceRegister);
 new GetStartedConfig(instanceRegister);
 new FactoryConfig(instanceRegister);
 new OrganizationsConfig(instanceRegister);

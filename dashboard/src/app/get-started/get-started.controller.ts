@@ -10,13 +10,13 @@
  *   Red Hat, Inc. - initial API and implementation
  */
 'use strict';
+
 import { CreateWorkspaceSvc } from '../workspaces/create-workspace/create-workspace.service';
 import { CheWorkspace } from '../../components/api/workspace/che-workspace.factory';
 import { DevfileRegistry, IDevfileMetaData } from '../../components/api/devfile-registry.factory';
 import { CheNotification } from '../../components/notification/che-notification.factory';
-import { IChePfInputDirectiveBindings } from '../../components/che-pf-widget/input/che-pf-input.directive';
 import { IChePfSecondaryButtonBindings } from '../../components/che-pf-widget/button/che-pf-secondary-button.directive';
-import { IChePfSwitchBindings } from '../../components/che-pf-widget/switch/che-pf-switch.directive';
+import { IGetStartedToolbarBindingProperties } from './toolbar/get-started-toolbar.component';
 
 
 /**
@@ -26,7 +26,7 @@ import { IChePfSwitchBindings } from '../../components/che-pf-widget/switch/che-
  * @author Oleksii Orel
  * @author Oleksii Kurinnyi
  */
-export class GetStartedNextController {
+export class GetStartedController {
 
   static $inject = [
     '$filter',
@@ -36,13 +36,12 @@ export class GetStartedNextController {
     'cheWorkspace',
     'createWorkspaceSvc',
     'devfileRegistry',
+    '$location'
   ];
 
-  ephemeralMode: boolean;
-  filterInput: IChePfInputDirectiveBindings;
-  filterResultsCount: number;
+  toolbarProps: IGetStartedToolbarBindingProperties;
   createButton: IChePfSecondaryButtonBindings;
-  tmpStorage: IChePfSwitchBindings;
+  filteredDevfiles: Array<IDevfileMetaData> = [];
 
   $filter: ng.IFilterService;
   $log: ng.ILogService;
@@ -54,10 +53,9 @@ export class GetStartedNextController {
   private isLoading: boolean = false;
   private isCreating: boolean = false;
   private devfileRegistryUrl: string;
-  private selectedDevfile: IDevfileMetaData | undefined;
 
   private devfiles: Array<IDevfileMetaData> = [];
-  private filteredDevfiles: Array<IDevfileMetaData> = [];
+  private ephemeralMode: boolean;
 
   /**
    * Default constructor that is using resource
@@ -70,6 +68,7 @@ export class GetStartedNextController {
     cheWorkspace: CheWorkspace,
     createWorkspaceSvc: CreateWorkspaceSvc,
     devfileRegistry: DevfileRegistry,
+    $location: ng.ILocationService
   ) {
     this.$filter = $filter;
     this.$log = $log;
@@ -85,41 +84,28 @@ export class GetStartedNextController {
       this.init();
     });
 
-    this.filterInput = {
-      config: {
-        name: 'filter-field',
-        placeHolder: 'Filter by'
-      },
-      ngChange: filterBy => this.applyFilter(filterBy),
+    this.toolbarProps = {
+      devfiles: [],
+      ephemeralMode: false,
+      onFilterChange: filtered => this.onFilterChange(filtered),
+      onEphemeralModeChange: mode => this.onEphemeralModeChange(mode),
     };
     this.createButton = {
       title: 'Create a Custom Workspace',
-      onClick: () => this.createWorkspace(),
+      onClick: () => $location.path('/create-workspace').search({tab: 'IMPORT_DEVFILE'}),
     };
-
-    this.tmpStorage = {
-      config: {
-        name: 'temporary-storage-switch',
-        messageOn: 'Temporary Storage',
-        messageOff: 'Temporary Storage',
-      },
-      onChange: ($value: boolean) => console.log('>>> switch was clicked, ', $value, this.ephemeralMode)
-    };
-  }
-
-  onSelect(devfile: IDevfileMetaData): void {
-    this.selectedDevfile = devfile;
-  }
-
-  isSelected(devfile: IDevfileMetaData): boolean {
-    return this.selectedDevfile === devfile;
   }
 
   isCreateButtonDisabled(): boolean {
-    return this.isCreating
-      || !this.selectedDevfile
-      || !this.selectedDevfile.links
-      || !this.selectedDevfile.links.self;
+    return this.isCreating;
+  }
+
+  onFilterChange(filteredDevfiles: IDevfileMetaData[]): void {
+    this.filteredDevfiles = filteredDevfiles;
+  }
+
+  onEphemeralModeChange(mode: boolean): void {
+    this.ephemeralMode = mode;
   }
 
   private init(): void {
@@ -137,7 +123,7 @@ export class GetStartedNextController {
         }
         return devfile;
       });
-      this.applyFilter();
+      this.toolbarProps.devfiles = this.devfiles;
     }, (error: any) => {
       const message = 'Failed to load devfiles meta list.';
       this.cheNotification.showError(message);
@@ -147,13 +133,19 @@ export class GetStartedNextController {
     });
   }
 
-  private createWorkspace(): ng.IPromise<void> {
-    if (!this.selectedDevfile || !this.selectedDevfile.links || !this.selectedDevfile.links.self) {
-      return this.$q.reject({ data: { message: 'There is no selected Template.' } });
+  private createWorkspace(devfileMetaData: IDevfileMetaData): void {
+    if (this.isCreating) {
+      return;
+    }
+    if (!devfileMetaData || !devfileMetaData.links || !devfileMetaData.links.self) {
+      const message = 'There is no selected Template.';
+      this.cheNotification.showError(message);
+      this.$log.error(message);
+      return;
     }
     this.isCreating = true;
-    const selfLink = this.selectedDevfile.links.self;
-    return this.devfileRegistry.fetchDevfile(this.devfileRegistryUrl, selfLink)
+    const selfLink = devfileMetaData.links.self;
+    this.devfileRegistry.fetchDevfile(this.devfileRegistryUrl, selfLink)
       .then(() => {
         const devfile = this.devfileRegistry.getDevfile(this.devfileRegistryUrl, selfLink);
         if (this.ephemeralMode) {
@@ -162,7 +154,7 @@ export class GetStartedNextController {
           }
           devfile.attributes.persistVolumes = 'false';
         }
-        const attributes = { stackName: this.selectedDevfile.displayName };
+        const attributes = {stackName: devfileMetaData.displayName};
         return this.createWorkspaceSvc.createWorkspaceFromDevfile(undefined, devfile, attributes, true);
       })
       .then(workspace => {
@@ -171,20 +163,6 @@ export class GetStartedNextController {
       .finally(() => {
         this.isCreating = false;
       });
-  }
-
-  private applyFilter(filterBy?: string): void {
-    if (!filterBy) {
-      filterBy = '';
-    }
-    const value = filterBy.toLocaleLowerCase();
-    this.filteredDevfiles = this.$filter('filter')(this.devfiles, devfile => {
-      return devfile.displayName.toLowerCase().includes(value) || devfile.description.toLowerCase().includes(value);
-    });
-    if (this.filteredDevfiles.findIndex(devfile => devfile === this.selectedDevfile) === -1) {
-      this.selectedDevfile = undefined;
-    }
-    this.filterResultsCount = this.filteredDevfiles.length;
   }
 
 }
