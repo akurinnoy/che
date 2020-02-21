@@ -10,13 +10,13 @@
  *   Red Hat, Inc. - initial API and implementation
  */
 'use strict';
+
 import { CreateWorkspaceSvc } from '../workspaces/create-workspace/create-workspace.service';
 import { CheWorkspace } from '../../components/api/workspace/che-workspace.factory';
 import { DevfileRegistry, IDevfileMetaData } from '../../components/api/devfile-registry.factory';
 import { CheNotification } from '../../components/notification/che-notification.factory';
-import { IChePfInputDirectiveBindings } from '../../components/che-pf-widget/input/che-pf-input.directive';
 import { IChePfSecondaryButtonBindings } from '../../components/che-pf-widget/button/che-pf-secondary-button.directive';
-import { IChePfSwitchBindings } from '../../components/che-pf-widget/switch/che-pf-switch.directive';
+import { IGetStartedToolbarBindingProperties } from './toolbar/get-started-toolbar.component';
 
 
 /**
@@ -38,11 +38,9 @@ export class GetStartedNextController {
     'devfileRegistry',
   ];
 
-  ephemeralMode: boolean;
-  filterInput: IChePfInputDirectiveBindings;
-  filterResultsCount: number;
+  toolbarProps: IGetStartedToolbarBindingProperties;
   createButton: IChePfSecondaryButtonBindings;
-  tmpStorage: IChePfSwitchBindings;
+  filteredDevfiles: Array<IDevfileMetaData> = [];
 
   $filter: ng.IFilterService;
   $log: ng.ILogService;
@@ -51,13 +49,11 @@ export class GetStartedNextController {
   createWorkspaceSvc: CreateWorkspaceSvc;
   devfileRegistry: DevfileRegistry;
 
-  private isLoading: boolean = false;
   private isCreating: boolean = false;
   private devfileRegistryUrl: string;
   private selectedDevfile: IDevfileMetaData | undefined;
-
   private devfiles: Array<IDevfileMetaData> = [];
-  private filteredDevfiles: Array<IDevfileMetaData> = [];
+  private ephemeralMode: boolean;
 
   /**
    * Default constructor that is using resource
@@ -82,28 +78,20 @@ export class GetStartedNextController {
       const workspaceSettings = cheWorkspace.getWorkspaceSettings();
       this.devfileRegistryUrl = workspaceSettings && workspaceSettings.cheWorkspaceDevfileRegistryUrl;
       this.ephemeralMode = workspaceSettings['che.workspace.persist_volumes.default'] === 'false';
+      this.toolbarProps.ephemeralMode = this.ephemeralMode;
+
       this.init();
     });
 
-    this.filterInput = {
-      config: {
-        name: 'filter-field',
-        placeHolder: 'Filter by'
-      },
-      ngChange: filterBy => this.applyFilter(filterBy),
+    this.toolbarProps = {
+      devfiles: [],
+      ephemeralMode: false,
+      onFilterChange: filtered => this.onFilterChange(filtered),
+      onEphemeralModeChange: mode => this.onEphemeralModeChange(mode),
     };
     this.createButton = {
       title: 'Create a Custom Workspace',
       onClick: () => this.createWorkspace(),
-    };
-
-    this.tmpStorage = {
-      config: {
-        name: 'temporary-storage-switch',
-        messageOn: 'Temporary Storage',
-        messageOff: 'Temporary Storage',
-      },
-      onChange: ($value: boolean) => console.log('>>> switch was clicked, ', $value, this.ephemeralMode)
     };
   }
 
@@ -122,6 +110,14 @@ export class GetStartedNextController {
       || !this.selectedDevfile.links.self;
   }
 
+  onFilterChange(filteredDevfiles: IDevfileMetaData[]): void {
+    this.filteredDevfiles = filteredDevfiles;
+  }
+
+  onEphemeralModeChange(mode: boolean): void {
+    this.ephemeralMode = mode;
+  }
+
   private init(): void {
     if (!this.devfileRegistryUrl) {
       const message = 'Failed to load the devfile registry URL.';
@@ -129,7 +125,6 @@ export class GetStartedNextController {
       this.$log.error(message);
       return;
     }
-    this.isLoading = true;
     this.devfileRegistry.fetchDevfiles(this.devfileRegistryUrl).then((devfiles: Array<IDevfileMetaData>) => {
       this.devfiles = devfiles.map(devfile => {
         if (!devfile.icon.startsWith('http')) {
@@ -137,13 +132,11 @@ export class GetStartedNextController {
         }
         return devfile;
       });
-      this.applyFilter();
+      this.toolbarProps.devfiles = this.devfiles;
     }, (error: any) => {
       const message = 'Failed to load devfiles meta list.';
       this.cheNotification.showError(message);
       this.$log.error(message, error);
-    }).finally(() => {
-      this.isLoading = false;
     });
   }
 
@@ -171,20 +164,6 @@ export class GetStartedNextController {
       .finally(() => {
         this.isCreating = false;
       });
-  }
-
-  private applyFilter(filterBy?: string): void {
-    if (!filterBy) {
-      filterBy = '';
-    }
-    const value = filterBy.toLocaleLowerCase();
-    this.filteredDevfiles = this.$filter('filter')(this.devfiles, devfile => {
-      return devfile.displayName.toLowerCase().includes(value) || devfile.description.toLowerCase().includes(value);
-    });
-    if (this.filteredDevfiles.findIndex(devfile => devfile === this.selectedDevfile) === -1) {
-      this.selectedDevfile = undefined;
-    }
-    this.filterResultsCount = this.filteredDevfiles.length;
   }
 
 }

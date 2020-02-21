@@ -29,40 +29,11 @@
       <small>Select a sample template to create your first workspace.</small>
 
       <!-- toolbar -->
-      <div class="pf-l-split pf-m-gutter">
-        <div class="pf-l-split__item">
-          <!-- filter field -->
-          <che-pf-input ng-model="getStartedNextController.filterInput.model"
-            config="getStartedNextController.filterInput.config"
-            ng-change="getStartedNextController.filterInput.ngChange($value)"></che-pf-input>
-          <!-- filter field end -->
-        </div>
-        <div class="pf-l-split__item pf-m-fill"></div>
-        <div class="pf-l-split__item">
-          <div class="pf-l-level pf-m-gutter">
-            <div class="pf-l-level__item">
-              <!-- temporary storage toggle -->
-              <che-pf-switch my-model="getStartedNextController.ephemeralMode"
-                config="getStartedNextController.tmpStorage.config"
-                on-change="getStartedNextController.tmpStorage.onChange($value)"></che-pf-switch>
-              <span class="temporary-storage-tooltip"
-                uib-tooltip-html="'Temporary Storage allows for faster I/O but may have limited storage and is not persistent.'"
-                tooltip-trigger="mouseenter" tabindex="-1" tooltip-append-to-body="true">
-                <i class="fa fa-question-circle" aria-hidden="true"></i>
-              </span>
-              <!-- temporary storage toggle end -->
-            </div>
-            <div class="pf-l-level__item">
-              <!-- filter results number -->
-              <ng-pluralize count="getStartedNextController.filterResultsCount" when="{'one': '1 item',
-              'other': '{} items'}">
-              </ng-pluralize>
-              <!-- filter results number end -->
-            </div>
-          </div>
-
-        </div>
-      </div>
+      <get-started-toolbar
+        devfiles="getStartedNextController.toolbarProps.devfiles"
+        ephemeral-mode="getStartedNextController.toolbarProps.ephemeralMode"
+        on-filter-change="getStartedNextController.toolbarProps.onFilterChange($filtered)"
+        on-ephemeral-mode-change="getStartedNextController.toolbarProps.onEphemeralModeChange($ephemeralMode)"></get-started-toolbar>
       <!-- toolbar end -->
 
       </div>

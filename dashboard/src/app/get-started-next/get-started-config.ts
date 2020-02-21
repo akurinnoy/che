@@ -13,6 +13,8 @@
 
 import { GetStartedNextController } from './get-started.controller';
 import { GetStartedNextConfigService } from './get-started-config.service';
+import { GetStartedToolbar } from './toolbar/get-started-toolbar.component';
+import { GetStartedToolbarController } from './toolbar/get-started-toolbar.controller';
 
 /**
  * @name getStarted:GetStartedConfig
@@ -23,6 +25,8 @@ export class GetStartedNextConfig {
 
   constructor(register: che.IRegisterService) {
     register.controller('GetStartedNextController', GetStartedNextController);
+    register.controller('GetStartedToolbarController', GetStartedToolbarController);
+    register.component('getStartedToolbar', GetStartedToolbar);
 
     register.service('getStartedNextConfigService', GetStartedNextConfigService);
 
