@@ -77,13 +77,6 @@ export class GetStartedController {
     this.createWorkspaceSvc = createWorkspaceSvc;
     this.devfileRegistry = devfileRegistry;
 
-    cheWorkspace.fetchWorkspaceSettings().then(() => {
-      const workspaceSettings = cheWorkspace.getWorkspaceSettings();
-      this.devfileRegistryUrl = workspaceSettings && workspaceSettings.cheWorkspaceDevfileRegistryUrl;
-      this.ephemeralMode = workspaceSettings['che.workspace.persist_volumes.default'] === 'false';
-      this.init();
-    });
-
     this.toolbarProps = {
       devfiles: [],
       ephemeralMode: false,
@@ -94,6 +87,17 @@ export class GetStartedController {
       title: 'Create a Custom Workspace',
       onClick: () => $location.path('/create-workspace').search({tab: 'IMPORT_DEVFILE'}),
     };
+
+    this.isLoading = true;
+    cheWorkspace.fetchWorkspaceSettings().then(() => {
+      const workspaceSettings = cheWorkspace.getWorkspaceSettings();
+      this.devfileRegistryUrl = workspaceSettings && workspaceSettings.cheWorkspaceDevfileRegistryUrl;
+      this.ephemeralMode = workspaceSettings['che.workspace.persist_volumes.default'] === 'false';
+      this.toolbarProps.ephemeralMode = this.ephemeralMode;
+      return this.init();
+    }).finally(() => {
+      this.isLoading = false;
+    });
   }
 
   isCreateButtonDisabled(): boolean {
@@ -108,32 +112,7 @@ export class GetStartedController {
     this.ephemeralMode = mode;
   }
 
-  private init(): void {
-    if (!this.devfileRegistryUrl) {
-      const message = 'Failed to load the devfile registry URL.';
-      this.cheNotification.showError(message);
-      this.$log.error(message);
-      return;
-    }
-    this.isLoading = true;
-    this.devfileRegistry.fetchDevfiles(this.devfileRegistryUrl).then((devfiles: Array<IDevfileMetaData>) => {
-      this.devfiles = devfiles.map(devfile => {
-        if (!devfile.icon.startsWith('http')) {
-          devfile.icon = this.devfileRegistryUrl + devfile.icon;
-        }
-        return devfile;
-      });
-      this.toolbarProps.devfiles = this.devfiles;
-    }, (error: any) => {
-      const message = 'Failed to load devfiles meta list.';
-      this.cheNotification.showError(message);
-      this.$log.error(message, error);
-    }).finally(() => {
-      this.isLoading = false;
-    });
-  }
-
-  private createWorkspace(devfileMetaData: IDevfileMetaData): void {
+  createWorkspace(devfileMetaData: IDevfileMetaData): void {
     if (this.isCreating) {
       return;
     }
@@ -163,6 +142,28 @@ export class GetStartedController {
       .finally(() => {
         this.isCreating = false;
       });
+  }
+
+  private init(): ng.IPromise<void> {
+    if (!this.devfileRegistryUrl) {
+      const message = 'Failed to load the devfile registry URL.';
+      this.cheNotification.showError(message);
+      this.$log.error(message);
+      return;
+    }
+    return this.devfileRegistry.fetchDevfiles(this.devfileRegistryUrl).then((devfiles: Array<IDevfileMetaData>) => {
+      this.devfiles = devfiles.map(devfile => {
+        if (!devfile.icon.startsWith('http')) {
+          devfile.icon = this.devfileRegistryUrl + devfile.icon;
+        }
+        return devfile;
+      });
+      this.toolbarProps.devfiles = this.devfiles;
+    }, (error: any) => {
+      const message = 'Failed to load devfiles meta list.';
+      this.cheNotification.showError(message);
+      this.$log.error(message, error);
+    });
   }
 
 }
