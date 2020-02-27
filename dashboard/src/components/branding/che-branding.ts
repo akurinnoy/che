@@ -27,7 +27,6 @@ const ASSET_PREFIX = 'assets/branding/';
  */
 export class CheBranding {
   private branding = BRANDING_DEFAULT;
-  private callbacks: Map<string, Function> = new Map();
   private readonly readyPromise: Promise<void>;
 
   static get(): CheBranding {
@@ -53,11 +52,6 @@ export class CheBranding {
     return angular.element.get(`${ASSET_PREFIX}product.json`).then(branding => {
       if (branding) {
         this.branding = angular.extend(BRANDING_DEFAULT, branding);
-        this.callbacks.forEach(callback => {
-          if (angular.isFunction(callback)) {
-            callback(this.branding);
-          }
-        });
       }
     }).catch(error => {
       console.error(`Can't GET "${ASSET_PREFIX}product.json". ${error ? 'Error: ' : ''}`, error);
